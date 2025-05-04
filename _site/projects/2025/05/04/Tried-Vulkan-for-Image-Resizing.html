@@ -1,0 +1,734 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.27.1 by Michael Rose
+  Copyright 2013-2025 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Tried Vulkan for Image Resizing - 3次元を理解しよう</title>
+<meta name="description" content="Tried Vulkan on Android">
+
+
+  <meta name="author" content="Doehyung Lee">
+  
+  <meta property="article:author" content="Doehyung Lee">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="3次元を理解しよう">
+<meta property="og:title" content="Tried Vulkan for Image Resizing">
+<meta property="og:url" content="http://localhost:4000/projects/2025/05/04/Tried-Vulkan-for-Image-Resizing.html">
+
+
+  <meta property="og:description" content="Tried Vulkan on Android">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2025-05-04T00:00:00+09:00">
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/projects/2025/05/04/Tried-Vulkan-for-Image-Resizing.html">
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="3次元を理解しよう Feed">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single" dir="ltr">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          3次元を理解しよう
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a
+                href="/"
+                
+                
+              >Home</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+<div id="main" role="main">
+  
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="http://localhost:4000/" itemprop="url">Doehyung Lee</a>
+    </h3>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+<!--    
+      
+      
+      
+      
+    
+    
+      <nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
+  <ul class="nav__items">
+    
+      
+      
+        <li>
+          
+            <span class="nav__sub-title">Getting Started</span>
+          
+
+          
+          <ul>
+            
+              <li><a href="/docs/quick-start-guide/">Quick-Start Guide</a></li>
+            
+              <li><a href="/docs/structure/">Structure</a></li>
+            
+              <li><a href="/docs/installation/">Installation</a></li>
+            
+              <li><a href="/docs/upgrading/">Upgrading</a></li>
+            
+          </ul>
+          
+        </li>
+      
+        <li>
+          
+            <span class="nav__sub-title">Customization</span>
+          
+
+          
+          <ul>
+            
+              <li><a href="/docs/configuration/">Configuration</a></li>
+            
+              <li><a href="/docs/navigation/">Navigation</a></li>
+            
+              <li><a href="/docs/ui-text/">UI Text</a></li>
+            
+              <li><a href="/docs/authors/">Authors</a></li>
+            
+              <li><a href="/docs/layouts/">Layouts</a></li>
+            
+          </ul>
+          
+        </li>
+      
+        <li>
+          
+            <span class="nav__sub-title">Content</span>
+          
+
+          
+          <ul>
+            
+              <li><a href="/docs/posts/">Working with Posts</a></li>
+            
+              <li><a href="/docs/pages/">Working with Pages</a></li>
+            
+              <li><a href="/docs/collections/">Working with Collections</a></li>
+            
+              <li><a href="/docs/helpers/">Helpers</a></li>
+            
+              <li><a href="/docs/utility-classes/">Utility Classes</a></li>
+            
+          </ul>
+          
+        </li>
+      
+        <li>
+          
+            <span class="nav__sub-title">Extras</span>
+          
+
+          
+          <ul>
+            
+              <li><a href="/docs/stylesheets/">Stylesheets</a></li>
+            
+              <li><a href="/docs/javascript/">JavaScript</a></li>
+            
+          </ul>
+          
+        </li>
+      
+    
+  </ul>
+</nav>
+
+    
+	<label for="ac-toc">Toggle Menu</label> -->
+	<nav class="nav__list">
+	  <ul class="nav__items">
+	    <li>
+	      <span class="nav__sub-title">Just Notes</span>
+	      <ul>
+	        
+	        
+	          <li>
+	            <a href="/2025/05/03/%EB%B8%94%EB%A1%9C%EA%B7%B8-%EC%9A%B4%EC%98%81%EC%9A%A9-%EB%A9%94%EB%AA%A8.html">
+	              블로그 운영용 메모
+	            </a>
+	          </li>
+	        
+	          <li>
+	            <a href="/just-notes/2024/07/03/%ED%8C%80%EB%9E%A9-%EB%A9%B4%EC%A0%91-%EB%B4%84.html">
+	              팀 랩 면접 봄
+	            </a>
+	          </li>
+	        
+	          <li>
+	            <a href="/just-notes/2024/06/22/%EB%B8%94%EB%A1%9C%EA%B7%B8-%EC%9A%B4%EC%98%81-%EA%B3%84%ED%9A%8D.html">
+	              블로그 운영 계획
+	            </a>
+	          </li>
+	        
+	          <li>
+	            <a href="/just-notes/2024/06/22/github-blog-start.html">
+	              github.io 블로그 시작하기
+	            </a>
+	          </li>
+	        
+	      </ul>
+	    </li>
+	
+	    <li>
+	      <span class="nav__sub-title">Projects</span>
+	      <ul>
+	        
+	        
+	          <li>
+	            <a href="/projects/2025/05/04/Tried-Vulkan-for-Image-Resizing.html" class="active">
+	              Tried Vulkan for Image Resizing
+	            </a>
+	          </li>
+	        
+	          <li>
+	            <a href="/projects/2024/06/23/Auto-Schedule-Register.html">
+	              Auto Schedule Register
+	            </a>
+	          </li>
+	        
+	          <li>
+	            <a href="/projects/2024/06/22/project-ideas.html">
+	              Project Ideas
+	            </a>
+	          </li>
+	        
+	      </ul>
+	    </li>
+	
+	    <li>
+	      <span class="nav__sub-title">Study Notes</span>
+	      <ul>
+	        
+	        
+	          <li>
+	            <a href="/study-notes/2024/06/30/%E4%B8%BB%E6%88%90%E5%88%86%E5%88%86%E6%9E%90%E3%81%AE%E5%B9%BE%E4%BD%95%E5%AD%A6%E7%9A%84%E3%81%AA%E6%84%8F%E5%91%B3.html">
+	              主成分分析の幾何学的な意味
+	            </a>
+	          </li>
+	        
+	      </ul>
+	    </li>
+	  </ul>
+	</nav>
+	
+  
+  </div>
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Tried Vulkan for Image Resizing">
+    <meta itemprop="description" content="Tried Vulkan on Android">
+    <meta itemprop="datePublished" content="2025-05-04T00:00:00+09:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">
+            <a href="http://localhost:4000/projects/2025/05/04/Tried-Vulkan-for-Image-Resizing.html" itemprop="url">Tried Vulkan for Image Resizing
+</a>
+          </h1>
+          
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <h3 id="can-we-make-image-processing-faster-with-smartphone-gpu-with-vulkan">Can we make image processing faster with smartphone GPU with Vulkan?</h3>
+
+<h4 id="background">Background</h4>
+<p>Nefrock, the company where I worked on this project, wanted to examine the possibility of optimizing image preprocessing using the GPU of a smartphone. They’re providing a service for real-time OCR on smartphones, and while the deep learning model itself can perform computations on the smartphone GPU, the image input to the model was not preprocessed on the GPU. So they wanted to explore whether it’s possible to preprocess images (resizing, in this case) directly on the GPU and achieve better speed.</p>
+
+<h4 id="technology-stacks-for-implementation">Technology Stacks for Implementation</h4>
+<p>We used C++ with Vulkan.</p>
+
+<h4 id="what-and-how-to-implement">What and How to Implement?</h4>
+
+<p>First, my adviser asked me to implement very simple process: <strong>get the camera image, then resize it</strong>.
+I needed to implement this process in two versions.:</p>
+
+<ul>
+  <li><strong>CPU Resizing</strong>: using only CPU and OpenCV</li>
+  <li><strong>Vulkan Resizing</strong>: using smartphone GPU via Vulkan</li>
+</ul>
+
+<p>After implementation, we compared the time taken for resizing images captured from the camera.</p>
+
+<p>We referred to <a href="https://github.com/ktzevani/native-camera-vulkan">this GitHub project</a>, which uses Vulkan for image processing on Android, and built our application based on it.</p>
+
+<h4 id="two-types-of-camera-image-resize-application-logic">Two Types of Camera Image Resize Application Logic</h4>
+
+<h5 id="cpu-resizing">CPU Resizing</h5>
+
+<p><img src="/assets/CPU_Resizing.png" alt="" /></p>
+
+<p>This version is straightforward. It captures an image from the camera, copies it to unified memory accessible by the CPU, and resizes it using OpenCV. We measured the time from when the image data arrived at the Hardware Buffer to the completion of resizing.</p>
+
+<p>If you’re unfamiliar with <strong>Hardware Buffer</strong> and <strong>Unified Memory</strong>:</p>
+
+<ul>
+  <li><strong>Hardware Buffer</strong>: memory accessible by hardware like camera and GPU</li>
+  <li><strong>Unified Memory</strong>: shared memory accessible from both CPU and GPU Most modern smartphones have this architecture.</li>
+</ul>
+
+<h5 id="vulkan-resizing">Vulkan Resizing</h5>
+<p><img src="/assets/Vulkan_Resizing%201.png" alt="" />
+This version uses the GPU for resizing. Light green arrows represent GPU processes. After acquiring the camera image into Hardware Buffer, the GPU copies it into unified memory, performs resizing (rendering at a lower resolution using Vulkan API), and copies the image onto a <strong>Staging Buffer</strong>.</p>
+
+<p>GPU does perform the resizing as intended, but the process is more complex. New concepts like <strong>Staging Buffer</strong> and <strong>Image</strong> objects come into play.</p>
+
+<p>Before I proceed to what those are, I’d like to introduce the typical behaviour of Vulkan in an ordinary PC.</p>
+
+<p>Vulkan Work Flow in Ordinary PC
+<img src="/assets/Vulkan_Operation_in_Ordinary_PC_2.png" alt="Vulkan_Operation_in_Ordinary_PC" /></p>
+
+<p>This is the work flow of Vulkan in oridnary PC step by step.</p>
+
+<ol>
+  <li>Create a Staging Buffer from image data</li>
+  <li>Copy the data to GPU VRAM as an Image object</li>
+  <li>Perform rendering operations on the Image</li>
+  <li>Convert the Image back to Staging Buffer and copy it to CPU-accessible RAM</li>
+</ol>
+
+<p>Typically, ordinary PCs have dedicated VRAM for GPU and it has no access to RAM, unlike the case of unified memory where both CPU and GPU can access the same memory space. To let the GPU access RAM, we need to arrange the data according to certain requirements. That can be done by converting the image data into <strong>Staging Buffer</strong> object following Vulkan API requirements. Then the data is prepared for GPU copying. After that, the GPU copies the image to VRAM and simultaneously transforms it into an <strong>Image</strong> object. This Image object ensures the image data meets specific GPU-side constraints just simliar to Staging Buffer object. Then, the GPU performs graphical operations on the Image. Once finished, the GPU gives the Image back to the CPU by copying it into another Staging Buffer on RAM. This is the typical process of Vulkan, and the <a href="https://vulkan-tutorial.com/Introduction">Vulkan Tutorial</a> explains this approach in detail.</p>
+
+<p>In our smartphone case, since memory is unified, we assumed <strong>Staging Buffer</strong> might not be necessary. However, we still followed the full pipeline due to the complexity of deviating from the standard process.</p>
+
+<h5 id="vulkan-rendering-process-and-prgramming">Vulkan Rendering Process and Prgramming</h5>
+<p>Compared to OpenCV, Vulkan required:</p>
+
+<ol>
+  <li>A full <strong>rendering pipeline</strong></li>
+  <li>Programming at a much <strong>lower abstraction level</strong></li>
+</ol>
+
+<p>Vulkan image rendering pipeline is as below.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>image + vertex (input)
+   -&gt; Vertex Shader
+   -&gt; Rasterization
+   -&gt; Fragment Shader
+   -&gt; Rendered Image (output)
+</code></pre></div></div>
+<p>This is fundamentally different from OpenCV, which treats images as matrices and applies operations pixel-wise. Vulkan is focused on rendering and uses 3D concepts like MVP (Model-View-Projection) transformation. In the <a href="https://github.com/ktzevani/native-camera-vulkan">codebase we used</a>, the original rendering logic was for a rotating cube. We modified it to render a static rectangle, resized through vertex positioning, and aligned the camera view perpendicularly.</p>
+
+<p>About lower abstraction level, I had to carefully set every detailed settings everytime I make an object like below. </p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>VkImageCreateInfo imageInfo{};
+imageInfo.sType = VK_STRUCTURE_TYPE_IMAGE_CREATE_INFO;
+imageInfo.imageType = VK_IMAGE_TYPE_2D;
+imageInfo.extent.width = static_cast&lt;uint32_t&gt;(texWidth);
+imageInfo.extent.height = static_cast&lt;uint32_t&gt;(texHeight);
+imageInfo.extent.depth = 1;
+imageInfo.mipLevels = 1;
+imageInfo.arrayLayers = 1;
+...
+</code></pre></div></div>
+
+<p>These are settings just for making an Image object. These settings continue even more. And these settings should be set exactly according to your usage otherwise it wouldn’t work. Although this low-level design makes Vulkan blazingly fast, it makes also programming very stressful.</p>
+
+<h4 id="result">Result</h4>
+<p>We compared performance:</p>
+
+<ul>
+  <li><strong>CPU Resizing</strong>: 6–8ms/image</li>
+  <li><strong>Vulkan Resizing</strong>: 50–70ms/image</li>
+</ul>
+
+<p>Despite expecting speed-up from GPU, the Vulkan version was <strong>significantly slower</strong>. Even accounting for sequential processing of images (limiting parallelism), the difference was too large. We suspect that the overhead from using <strong>Staging Buffers</strong> in Vulkan was a major cause.</p>
+
+<p>We couldn’t test a Staging Buffer-free version due to time constraints.</p>
+<h4 id="conclusion">Conclusion</h4>
+<p>Using <strong>Vulkan’s graphics pipeline</strong> for preprocessing images on smartphones is <strong>not practical</strong> for Nefrock’s real-time OCR use case. Following Vulkan’s typical process adds overhead that negates GPU benefits. Also, Vulkan’s low-level programming drastically reduces productivity, which doesn’t align well with deep learning development where rapid prototyping is important.</p>
+
+<h4 id="note">Note</h4>
+<p>However, this does not mean GPU-based preprocessing is hopeless:</p>
+
+<ul>
+  <li>We did <strong>not test Vulkan’s compute shaders</strong>, which allow general-purpose GPU (GPGPU) programming and may offer simpler and more efficient processing.</li>
+  <li>Vulkan’s <strong>hardware compatibility</strong> is excellent, making it a viable option for large-scale deployment across diverse edge devices.</li>
+</ul>
+
+<h4 id="reflection">Reflection</h4>
+<p>Using C++ and Vulkan to implement low-level GPU processing on smartphones was frustrating but also rewarding. Learning about 3D graphics related contents such as MVP transformations was fun. But I regret not accomplishing more during the internship. I often jumped straight into coding without grasping the whole architecture, and it worked for many cases but this time I overlooked the fact that Vulkan wasn’t that simple. I need to go back to review concepts in Vulkan after making useless codes. I learned that balancing hands-on attempts with structured understanding is essential.</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-05-04T00:00:00+09:00">May 4, 2025</time></p>
+
+      </footer>
+
+      <section class="page__share">
+  <h4 class="page__share-title">Share on</h4>
+
+  <a href="https://x.com/intent/tweet?text=Tried+Vulkan+for+Image+Resizing%20http%3A%2F%2Flocalhost%3A4000%2Fprojects%2F2025%2F05%2F04%2FTried-Vulkan-for-Image-Resizing.html" class="btn btn--x" aria-label="Share on X" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on X">
+    <i class="fab fa-fw fa-x-twitter" aria-hidden="true"></i><span> X</span>
+  </a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fprojects%2F2025%2F05%2F04%2FTried-Vulkan-for-Image-Resizing.html" class="btn btn--facebook" aria-label="Share on Facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook">
+    <i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span>
+  </a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/projects/2025/05/04/Tried-Vulkan-for-Image-Resizing.html" class="btn btn--linkedin" aria-label="Share on LinkedIn" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn">
+    <i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span>
+  </a>
+
+  <a href="https://bsky.app/intent/compose?text=Tried+Vulkan+for+Image+Resizing%20http%3A%2F%2Flocalhost%3A4000%2Fprojects%2F2025%2F05%2F04%2FTried-Vulkan-for-Image-Resizing.html" class="btn btn--bluesky" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Bluesky">
+    <i class="fab fa-fw fa-bluesky" aria-hidden="true"></i><span> Bluesky</span>
+  </a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/2025/05/03/%EB%B8%94%EB%A1%9C%EA%B7%B8-%EC%9A%B4%EC%98%81%EC%9A%A9-%EB%A9%94%EB%AA%A8.html" class="pagination--pager" title="블로그 운영용 메모">Previous</a>
+    
+    
+      <a href="#" class="pagination--pager disabled">Next</a>
+    
+  </nav>
+
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    
+<div class="page__related">
+  
+  <h2 class="page__related-title">You May Also Enjoy</h2>
+  <div class="grid__wrapper">
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/2025/05/03/%EB%B8%94%EB%A1%9C%EA%B7%B8-%EC%9A%B4%EC%98%81%EC%9A%A9-%EB%A9%94%EB%AA%A8.html" rel="permalink">블로그 운영용 메모
+</a>
+      
+    </h2>
+    
+
+
+    <p class="archive__item-excerpt" itemprop="description">
+Github Pages란?
+github pages는 호스팅할 내용을 markdown 파일로 github repo에 올리면, 그 내용을 Jekyll을 사용해서 markdown 을 html 로 변환하고 호스팅해주는 서비스임.
+
+</p>
+  </article>
+</div>
+
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/just-notes/2024/07/03/%ED%8C%80%EB%9E%A9-%EB%A9%B4%EC%A0%91-%EB%B4%84.html" rel="permalink">팀 랩 면접 봄
+</a>
+      
+    </h2>
+    
+
+
+    <p class="archive__item-excerpt" itemprop="description">망한듯 ㅋㅋㅋㅋㅋ
+</p>
+  </article>
+</div>
+
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/study-notes/2024/06/30/%E4%B8%BB%E6%88%90%E5%88%86%E5%88%86%E6%9E%90%E3%81%AE%E5%B9%BE%E4%BD%95%E5%AD%A6%E7%9A%84%E3%81%AA%E6%84%8F%E5%91%B3.html" rel="permalink">主成分分析の幾何学的な意味
+</a>
+      
+    </h2>
+    
+
+
+    <p class="archive__item-excerpt" itemprop="description">主成分分析の幾何学的な意味
+</p>
+  </article>
+</div>
+
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/projects/2024/06/23/Auto-Schedule-Register.html" rel="permalink">Auto Schedule Register
+</a>
+      
+    </h2>
+    
+
+
+    <p class="archive__item-excerpt" itemprop="description">One simple idea that integrates AI into
+</p>
+  </article>
+</div>
+
+    
+  </div>
+</div>
+
+  
+  
+</div>
+      
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2025 <a href="http://localhost:4000">3次元を理解しよう</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

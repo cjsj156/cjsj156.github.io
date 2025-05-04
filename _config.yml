@@ -27,21 +27,43 @@ url: "https://cjsj156/cjsj156.github.io" # the base hostname & protocol for your
 twitter_username: None
 github_username:  cjsj166
 name: "Doehyung Lee"
+author:
+  name: "Doehyung Lee"
+
 header:
   nav: "main"
-defalts:
+defaults:
   - scope:
       path: ""
-      type: "posts"
+      type: posts
     values:
+      author_profile: true
+      layout: single
+      comments: true
+      share: true
+      related: true
       sidebar:
-        nav: "docs"
+        nav: docs
+
 
 
 # Build settings
 # theme: minimal-mistake-jekyll
 remote_theme: "mmistakes/minimal-mistakes@4.27.1"
+
+# Plugins (previously gems:)
 plugins:
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-gist
+  - jekyll-feed
+  - jekyll-include-cache
+
+# mimic GitHub Pages with --safe
+whitelist:
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-gist
   - jekyll-feed
   - jekyll-include-cache
 

@@ -1,25 +1,119 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2025-05-03T23:44:57+09:00</updated><id>/feed.xml</id><title type="html">Your awesome title</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Welcome to Jekyll!</title><link href="/jekyll/update/2025/05/03/welcome-to-jekyll.html" rel="alternate" type="text/html" title="Welcome to Jekyll!" /><published>2025-05-03T23:34:28+09:00</published><updated>2025-05-03T23:34:28+09:00</updated><id>/jekyll/update/2025/05/03/welcome-to-jekyll</id><content type="html" xml:base="/jekyll/update/2025/05/03/welcome-to-jekyll.html"><![CDATA[<p>You’ll find this post in your <code class="language-plaintext highlighter-rouge">_posts</code> directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run <code class="language-plaintext highlighter-rouge">jekyll serve</code>, which launches a web server and auto-regenerates your site when a file is updated.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2025-05-04T15:04:58+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">3次元を理解しよう</title><subtitle>Developer blog of 2nd year graduate student in Institute of Science Tokyo.</subtitle><author><name>Doehyung Lee</name></author><entry><title type="html">Tried Vulkan for Image Resizing</title><link href="http://localhost:4000/projects/2025/05/04/Tried-Vulkan-for-Image-Resizing.html" rel="alternate" type="text/html" title="Tried Vulkan for Image Resizing" /><published>2025-05-04T00:00:00+09:00</published><updated>2025-05-04T00:00:00+09:00</updated><id>http://localhost:4000/projects/2025/05/04/Tried%20Vulkan%20for%20Image%20Resizing</id><content type="html" xml:base="http://localhost:4000/projects/2025/05/04/Tried-Vulkan-for-Image-Resizing.html"><![CDATA[<h3 id="can-we-make-image-processing-faster-with-smartphone-gpu-with-vulkan">Can we make image processing faster with smartphone GPU with Vulkan?</h3>
 
-<p>Jekyll requires blog post files to be named according to the following format:</p>
+<h4 id="background">Background</h4>
+<p>Nefrock, the company where I worked on this project, wanted to examine the possibility of optimizing image preprocessing using the GPU of a smartphone. They’re providing a service for real-time OCR on smartphones, and while the deep learning model itself can perform computations on the smartphone GPU, the image input to the model was not preprocessed on the GPU. So they wanted to explore whether it’s possible to preprocess images (resizing, in this case) directly on the GPU and achieve better speed.</p>
 
-<p><code class="language-plaintext highlighter-rouge">YEAR-MONTH-DAY-title.MARKUP</code></p>
+<h4 id="technology-stacks-for-implementation">Technology Stacks for Implementation</h4>
+<p>We used C++ with Vulkan.</p>
 
-<p>Where <code class="language-plaintext highlighter-rouge">YEAR</code> is a four-digit number, <code class="language-plaintext highlighter-rouge">MONTH</code> and <code class="language-plaintext highlighter-rouge">DAY</code> are both two-digit numbers, and <code class="language-plaintext highlighter-rouge">MARKUP</code> is the file extension representing the format used in the file. After that, include the necessary front matter. Take a look at the source for this post to get an idea about how it works.</p>
+<h4 id="what-and-how-to-implement">What and How to Implement?</h4>
 
-<p>Jekyll also offers powerful support for code snippets:</p>
+<p>First, my adviser asked me to implement very simple process: <strong>get the camera image, then resize it</strong>.
+I needed to implement this process in two versions.:</p>
 
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">print_hi</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span>
-  <span class="nb">puts</span> <span class="s2">"Hi, </span><span class="si">#{</span><span class="nb">name</span><span class="si">}</span><span class="s2">"</span>
-<span class="k">end</span>
-<span class="n">print_hi</span><span class="p">(</span><span class="s1">'Tom'</span><span class="p">)</span>
-<span class="c1">#=&gt; prints 'Hi, Tom' to STDOUT.</span></code></pre></figure>
+<ul>
+  <li><strong>CPU Resizing</strong>: using only CPU and OpenCV</li>
+  <li><strong>Vulkan Resizing</strong>: using smartphone GPU via Vulkan</li>
+</ul>
 
-<p>Check out the <a href="https://jekyllrb.com/docs/home">Jekyll docs</a> for more info on how to get the most out of Jekyll. File all bugs/feature requests at <a href="https://github.com/jekyll/jekyll">Jekyll’s GitHub repo</a>. If you have questions, you can ask them on <a href="https://talk.jekyllrb.com/">Jekyll Talk</a>.</p>]]></content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html"><![CDATA[You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run jekyll serve, which launches a web server and auto-regenerates your site when a file is updated.]]></summary></entry><entry><title type="html">블로그 운영용 메모</title><link href="/2025/05/03/%EB%B8%94%EB%A1%9C%EA%B7%B8-%EC%9A%B4%EC%98%81%EC%9A%A9-%EB%A9%94%EB%AA%A8.html" rel="alternate" type="text/html" title="블로그 운영용 메모" /><published>2025-05-03T00:00:00+09:00</published><updated>2025-05-03T00:00:00+09:00</updated><id>/2025/05/03/%EB%B8%94%EB%A1%9C%EA%B7%B8%20%EC%9A%B4%EC%98%81%EC%9A%A9%20%EB%A9%94%EB%AA%A8</id><content type="html" xml:base="/2025/05/03/%EB%B8%94%EB%A1%9C%EA%B7%B8-%EC%9A%B4%EC%98%81%EC%9A%A9-%EB%A9%94%EB%AA%A8.html"><![CDATA[<p>참고:
-취미로 코딩하는 개발자님의 github pages 튜토리얼: https://devinlife.com/howto/
-jekyll 공식 웹사이트: https://jekyllrb.com/docs/usage/
-kerupani129님의 ubuntu로 최신 ruby를 설치하는 법: https://qiita.com/kerupani129/items/77dd1e3390b53f4e97b2</p>
+<p>After implementation, we compared the time taken for resizing images captured from the camera.</p>
 
-<h3 id="github-pages란">Github Pages란?</h3>
+<p>We referred to <a href="https://github.com/ktzevani/native-camera-vulkan">this GitHub project</a>, which uses Vulkan for image processing on Android, and built our application based on it.</p>
+
+<h4 id="two-types-of-camera-image-resize-application-logic">Two Types of Camera Image Resize Application Logic</h4>
+
+<h5 id="cpu-resizing">CPU Resizing</h5>
+
+<p><img src="/assets/CPU_Resizing.png" alt="" /></p>
+
+<p>This version is straightforward. It captures an image from the camera, copies it to unified memory accessible by the CPU, and resizes it using OpenCV. We measured the time from when the image data arrived at the Hardware Buffer to the completion of resizing.</p>
+
+<p>If you’re unfamiliar with <strong>Hardware Buffer</strong> and <strong>Unified Memory</strong>:</p>
+
+<ul>
+  <li><strong>Hardware Buffer</strong>: memory accessible by hardware like camera and GPU</li>
+  <li><strong>Unified Memory</strong>: shared memory accessible from both CPU and GPU Most modern smartphones have this architecture.</li>
+</ul>
+
+<h5 id="vulkan-resizing">Vulkan Resizing</h5>
+<p><img src="/assets/Vulkan_Resizing%201.png" alt="" />
+This version uses the GPU for resizing. Light green arrows represent GPU processes. After acquiring the camera image into Hardware Buffer, the GPU copies it into unified memory, performs resizing (rendering at a lower resolution using Vulkan API), and copies the image onto a <strong>Staging Buffer</strong>.</p>
+
+<p>GPU does perform the resizing as intended, but the process is more complex. New concepts like <strong>Staging Buffer</strong> and <strong>Image</strong> objects come into play.</p>
+
+<p>Before I proceed to what those are, I’d like to introduce the typical behaviour of Vulkan in an ordinary PC.</p>
+
+<p>Vulkan Work Flow in Ordinary PC
+<img src="/assets/Vulkan_Operation_in_Ordinary_PC_2.png" alt="Vulkan_Operation_in_Ordinary_PC" /></p>
+
+<p>This is the work flow of Vulkan in oridnary PC step by step.</p>
+
+<ol>
+  <li>Create a Staging Buffer from image data</li>
+  <li>Copy the data to GPU VRAM as an Image object</li>
+  <li>Perform rendering operations on the Image</li>
+  <li>Convert the Image back to Staging Buffer and copy it to CPU-accessible RAM</li>
+</ol>
+
+<p>Typically, ordinary PCs have dedicated VRAM for GPU and it has no access to RAM, unlike the case of unified memory where both CPU and GPU can access the same memory space. To let the GPU access RAM, we need to arrange the data according to certain requirements. That can be done by converting the image data into <strong>Staging Buffer</strong> object following Vulkan API requirements. Then the data is prepared for GPU copying. After that, the GPU copies the image to VRAM and simultaneously transforms it into an <strong>Image</strong> object. This Image object ensures the image data meets specific GPU-side constraints just simliar to Staging Buffer object. Then, the GPU performs graphical operations on the Image. Once finished, the GPU gives the Image back to the CPU by copying it into another Staging Buffer on RAM. This is the typical process of Vulkan, and the <a href="https://vulkan-tutorial.com/Introduction">Vulkan Tutorial</a> explains this approach in detail.</p>
+
+<p>In our smartphone case, since memory is unified, we assumed <strong>Staging Buffer</strong> might not be necessary. However, we still followed the full pipeline due to the complexity of deviating from the standard process.</p>
+
+<h5 id="vulkan-rendering-process-and-prgramming">Vulkan Rendering Process and Prgramming</h5>
+<p>Compared to OpenCV, Vulkan required:</p>
+
+<ol>
+  <li>A full <strong>rendering pipeline</strong></li>
+  <li>Programming at a much <strong>lower abstraction level</strong></li>
+</ol>
+
+<p>Vulkan image rendering pipeline is as below.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>image + vertex (input)
+   -&gt; Vertex Shader
+   -&gt; Rasterization
+   -&gt; Fragment Shader
+   -&gt; Rendered Image (output)
+</code></pre></div></div>
+<p>This is fundamentally different from OpenCV, which treats images as matrices and applies operations pixel-wise. Vulkan is focused on rendering and uses 3D concepts like MVP (Model-View-Projection) transformation. In the <a href="https://github.com/ktzevani/native-camera-vulkan">codebase we used</a>, the original rendering logic was for a rotating cube. We modified it to render a static rectangle, resized through vertex positioning, and aligned the camera view perpendicularly.</p>
+
+<p>About lower abstraction level, I had to carefully set every detailed settings everytime I make an object like below. </p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>VkImageCreateInfo imageInfo{};
+imageInfo.sType = VK_STRUCTURE_TYPE_IMAGE_CREATE_INFO;
+imageInfo.imageType = VK_IMAGE_TYPE_2D;
+imageInfo.extent.width = static_cast&lt;uint32_t&gt;(texWidth);
+imageInfo.extent.height = static_cast&lt;uint32_t&gt;(texHeight);
+imageInfo.extent.depth = 1;
+imageInfo.mipLevels = 1;
+imageInfo.arrayLayers = 1;
+...
+</code></pre></div></div>
+
+<p>These are settings just for making an Image object. These settings continue even more. And these settings should be set exactly according to your usage otherwise it wouldn’t work. Although this low-level design makes Vulkan blazingly fast, it makes also programming very stressful.</p>
+
+<h4 id="result">Result</h4>
+<p>We compared performance:</p>
+
+<ul>
+  <li><strong>CPU Resizing</strong>: 6–8ms/image</li>
+  <li><strong>Vulkan Resizing</strong>: 50–70ms/image</li>
+</ul>
+
+<p>Despite expecting speed-up from GPU, the Vulkan version was <strong>significantly slower</strong>. Even accounting for sequential processing of images (limiting parallelism), the difference was too large. We suspect that the overhead from using <strong>Staging Buffers</strong> in Vulkan was a major cause.</p>
+
+<p>We couldn’t test a Staging Buffer-free version due to time constraints.</p>
+<h4 id="conclusion">Conclusion</h4>
+<p>Using <strong>Vulkan’s graphics pipeline</strong> for preprocessing images on smartphones is <strong>not practical</strong> for Nefrock’s real-time OCR use case. Following Vulkan’s typical process adds overhead that negates GPU benefits. Also, Vulkan’s low-level programming drastically reduces productivity, which doesn’t align well with deep learning development where rapid prototyping is important.</p>
+
+<h4 id="note">Note</h4>
+<p>However, this does not mean GPU-based preprocessing is hopeless:</p>
+
+<ul>
+  <li>We did <strong>not test Vulkan’s compute shaders</strong>, which allow general-purpose GPU (GPGPU) programming and may offer simpler and more efficient processing.</li>
+  <li>Vulkan’s <strong>hardware compatibility</strong> is excellent, making it a viable option for large-scale deployment across diverse edge devices.</li>
+</ul>
+
+<h4 id="reflection">Reflection</h4>
+<p>Using C++ and Vulkan to implement low-level GPU processing on smartphones was frustrating but also rewarding. Learning about 3D graphics related contents such as MVP transformations was fun. But I regret not accomplishing more during the internship. I often jumped straight into coding without grasping the whole architecture, and it worked for many cases but this time I overlooked the fact that Vulkan wasn’t that simple. I need to go back to review concepts in Vulkan after making useless codes. I learned that balancing hands-on attempts with structured understanding is essential.</p>]]></content><author><name>Doehyung Lee</name></author><category term="projects" /><category term="Blog" /><summary type="html"><![CDATA[Tried Vulkan on Android]]></summary></entry><entry><title type="html">블로그 운영용 메모</title><link href="http://localhost:4000/2025/05/03/%EB%B8%94%EB%A1%9C%EA%B7%B8-%EC%9A%B4%EC%98%81%EC%9A%A9-%EB%A9%94%EB%AA%A8.html" rel="alternate" type="text/html" title="블로그 운영용 메모" /><published>2025-05-03T00:00:00+09:00</published><updated>2025-05-03T00:00:00+09:00</updated><id>http://localhost:4000/2025/05/03/%EB%B8%94%EB%A1%9C%EA%B7%B8%20%EC%9A%B4%EC%98%81%EC%9A%A9%20%EB%A9%94%EB%AA%A8</id><content type="html" xml:base="http://localhost:4000/2025/05/03/%EB%B8%94%EB%A1%9C%EA%B7%B8-%EC%9A%B4%EC%98%81%EC%9A%A9-%EB%A9%94%EB%AA%A8.html"><![CDATA[<h3 id="github-pages란">Github Pages란?</h3>
 <p>github pages는 호스팅할 내용을 markdown 파일로 github repo에 올리면, 그 내용을 Jekyll을 사용해서 markdown 을 html 로 변환하고 호스팅해주는 서비스임.</p>
 
 <h3 id="jekyll이란">Jekyll이란?</h3>
@@ -79,7 +173,17 @@ kerupani129님의 ubuntu로 최신 ruby를 설치하는 법: https://qiita.com/k
       <td><code class="language-plaintext highlighter-rouge">source venv/bin/activate &amp;&amp; python ...</code> 유사</td>
     </tr>
   </tbody>
-</table>]]></content><author><name></name></author><summary type="html"><![CDATA[참고: 취미로 코딩하는 개발자님의 github pages 튜토리얼: https://devinlife.com/howto/ jekyll 공식 웹사이트: https://jekyllrb.com/docs/usage/ kerupani129님의 ubuntu로 최신 ruby를 설치하는 법: https://qiita.com/kerupani129/items/77dd1e3390b53f4e97b2]]></summary></entry><entry><title type="html">팀 랩 면접 봄</title><link href="/just-notes/2024/07/03/%ED%8C%80%EB%9E%A9-%EB%A9%B4%EC%A0%91-%EB%B4%84.html" rel="alternate" type="text/html" title="팀 랩 면접 봄" /><published>2024-07-03T00:00:00+09:00</published><updated>2024-07-03T00:00:00+09:00</updated><id>/just-notes/2024/07/03/%ED%8C%80%EB%9E%A9%20%EB%A9%B4%EC%A0%91%20%EB%B4%84</id><content type="html" xml:base="/just-notes/2024/07/03/%ED%8C%80%EB%9E%A9-%EB%A9%B4%EC%A0%91-%EB%B4%84.html"><![CDATA[<h4 id="질문대답">질문&amp;대답</h4>
+</table>
+
+<p>참고:</p>
+
+<p>취미로 코딩하는 개발자님의 github pages 튜토리얼: https://devinlife.com/howto/</p>
+
+<p>jekyll 공식 웹사이트: https://jekyllrb.com/docs/usage/</p>
+
+<p>kerupani129님의 ubuntu로 최신 ruby를 설치하는 법: https://qiita.com/kerupani129/items/77dd1e3390b53f4e97b2</p>
+
+<p>minimal-mistakes github repo: https://github.com/mmistakes/minimal-mistakes</p>]]></content><author><name>Doehyung Lee</name></author><summary type="html"><![CDATA[Github Pages란? github pages는 호스팅할 내용을 markdown 파일로 github repo에 올리면, 그 내용을 Jekyll을 사용해서 markdown 을 html 로 변환하고 호스팅해주는 서비스임.]]></summary></entry><entry><title type="html">팀 랩 면접 봄</title><link href="http://localhost:4000/just-notes/2024/07/03/%ED%8C%80%EB%9E%A9-%EB%A9%B4%EC%A0%91-%EB%B4%84.html" rel="alternate" type="text/html" title="팀 랩 면접 봄" /><published>2024-07-03T00:00:00+09:00</published><updated>2024-07-03T00:00:00+09:00</updated><id>http://localhost:4000/just-notes/2024/07/03/%ED%8C%80%EB%9E%A9%20%EB%A9%B4%EC%A0%91%20%EB%B4%84</id><content type="html" xml:base="http://localhost:4000/just-notes/2024/07/03/%ED%8C%80%EB%9E%A9-%EB%A9%B4%EC%A0%91-%EB%B4%84.html"><![CDATA[<h4 id="질문대답">질문&amp;대답</h4>
 <ul>
   <li>지원동기 -&gt; 벤처기업 체험 -&gt; 근데 우리 이제 벤처 아님 -&gt; ? ㅋㅋㅋㅋㅋㅋㅋㅋ</li>
   <li>자기소개 -&gt; 일본에서 대학 나왓구요 지금 석사하고요….</li>
@@ -100,7 +204,7 @@ kerupani129님의 ubuntu로 최신 ruby를 설치하는 법: https://qiita.com/k
   <li>팀이 화상처리 &lt;-&gt; 기계학습으로 나뉘어져있음 -&gt; 이건 좀 급소였네? 난 당연히 둘 다 하는 건 줄 알았는데 말이지</li>
   <li>화상처리는 좀 더 엄격한 수학적인 처리에 가까움.</li>
   <li>기계학습은 이미지의 딥러닝도 포함해서 하는 것.</li>
-</ul>]]></content><author><name></name></author><category term="just-notes" /><summary type="html"><![CDATA[망한듯 ㅋㅋㅋㅋㅋ]]></summary></entry><entry><title type="html">主成分分析の幾何学的な意味</title><link href="/study-notes/2024/06/30/%E4%B8%BB%E6%88%90%E5%88%86%E5%88%86%E6%9E%90%E3%81%AE%E5%B9%BE%E4%BD%95%E5%AD%A6%E7%9A%84%E3%81%AA%E6%84%8F%E5%91%B3.html" rel="alternate" type="text/html" title="主成分分析の幾何学的な意味" /><published>2024-06-30T00:00:00+09:00</published><updated>2024-06-30T00:00:00+09:00</updated><id>/study-notes/2024/06/30/%E4%B8%BB%E6%88%90%E5%88%86%E5%88%86%E6%9E%90%E3%81%AE%E5%B9%BE%E4%BD%95%E5%AD%A6%E7%9A%84%E3%81%AA%E6%84%8F%E5%91%B3</id><content type="html" xml:base="/study-notes/2024/06/30/%E4%B8%BB%E6%88%90%E5%88%86%E5%88%86%E6%9E%90%E3%81%AE%E5%B9%BE%E4%BD%95%E5%AD%A6%E7%9A%84%E3%81%AA%E6%84%8F%E5%91%B3.html"><![CDATA[<h4 id="問題認識">問題認識</h4>
+</ul>]]></content><author><name>Doehyung Lee</name></author><category term="just-notes" /><summary type="html"><![CDATA[망한듯 ㅋㅋㅋㅋㅋ]]></summary></entry><entry><title type="html">主成分分析の幾何学的な意味</title><link href="http://localhost:4000/study-notes/2024/06/30/%E4%B8%BB%E6%88%90%E5%88%86%E5%88%86%E6%9E%90%E3%81%AE%E5%B9%BE%E4%BD%95%E5%AD%A6%E7%9A%84%E3%81%AA%E6%84%8F%E5%91%B3.html" rel="alternate" type="text/html" title="主成分分析の幾何学的な意味" /><published>2024-06-30T00:00:00+09:00</published><updated>2024-06-30T00:00:00+09:00</updated><id>http://localhost:4000/study-notes/2024/06/30/%E4%B8%BB%E6%88%90%E5%88%86%E5%88%86%E6%9E%90%E3%81%AE%E5%B9%BE%E4%BD%95%E5%AD%A6%E7%9A%84%E3%81%AA%E6%84%8F%E5%91%B3</id><content type="html" xml:base="http://localhost:4000/study-notes/2024/06/30/%E4%B8%BB%E6%88%90%E5%88%86%E5%88%86%E6%9E%90%E3%81%AE%E5%B9%BE%E4%BD%95%E5%AD%A6%E7%9A%84%E3%81%AA%E6%84%8F%E5%91%B3.html"><![CDATA[<h4 id="問題認識">問題認識</h4>
 <p>講義を受ける中で主成分分析の主軸方向が共分散行列の固有ベクトルになるということが納得が行かず、幾何学的な理解方法はないか考察してみることにした。</p>
 
 <h4 id="結論">結論</h4>
@@ -112,10 +216,10 @@ kerupani129님의 ubuntu로 최신 ruby를 설치하는 법: https://qiita.com/k
 
 <h4 id="説明">説明</h4>
 <p>以下のように2次元座標軸の原点を中心に円状に分散している点があると使用。
-<img src="/assets/images/PCA1.png" alt="" /></p>
+<img src="http://localhost:4000/assets/images/PCA1.png" alt="" /></p>
 
 <p>この点に対してある共分散行列で線形変換を行うと、以下のようになる。
-<img src="/assets/images/PCA2.png" alt="" /></p>
+<img src="http://localhost:4000/assets/images/PCA2.png" alt="" /></p>
 
 <p>その共分散行列が表している分布になるように変換される。
 ここではその共分散行列がxy方向に多く伸ばされるものだったとすると、
@@ -124,7 +228,7 @@ kerupani129님의 ubuntu로 최신 ruby를 설치하는 법: https://qiita.com/k
 <p>ここで主成分分析の主軸というのは楕円の長軸と短軸になる。
 長軸に対して射影をし、その長軸を新しい軸にするとデータのばらつきが一番大きい部分を残す（情報を残す）ことができる。</p>
 
-<p>主軸が楕円の軸になるということから、主軸同士がどうして垂直関係になるのかも直感的に理解できる。</p>]]></content><author><name></name></author><category term="study-notes" /><summary type="html"><![CDATA[主成分分析の幾何学的な意味]]></summary></entry><entry><title type="html">Auto Schedule Register</title><link href="/projects/2024/06/23/Auto-Schedule-Register.html" rel="alternate" type="text/html" title="Auto Schedule Register" /><published>2024-06-23T00:00:00+09:00</published><updated>2024-06-23T00:00:00+09:00</updated><id>/projects/2024/06/23/Auto-Schedule-Register</id><content type="html" xml:base="/projects/2024/06/23/Auto-Schedule-Register.html"><![CDATA[<h2 id="auto-schedule-register">Auto Schedule Register</h2>
+<p>主軸が楕円の軸になるということから、主軸同士がどうして垂直関係になるのかも直感的に理解できる。</p>]]></content><author><name>Doehyung Lee</name></author><category term="study-notes" /><summary type="html"><![CDATA[主成分分析の幾何学的な意味]]></summary></entry><entry><title type="html">Auto Schedule Register</title><link href="http://localhost:4000/projects/2024/06/23/Auto-Schedule-Register.html" rel="alternate" type="text/html" title="Auto Schedule Register" /><published>2024-06-23T00:00:00+09:00</published><updated>2024-06-23T00:00:00+09:00</updated><id>http://localhost:4000/projects/2024/06/23/Auto-Schedule-Register</id><content type="html" xml:base="http://localhost:4000/projects/2024/06/23/Auto-Schedule-Register.html"><![CDATA[<h2 id="auto-schedule-register">Auto Schedule Register</h2>
 
 <h6 id="github--httpsgithubcomcjsj166auto-schedule-register">github : https://github.com/cjsj166/auto-schedule-register</h6>
 <h6 id="link--httpschromewebstoregooglecomdetailfjodbpikdciljgollogaefihdnkfnilepreviewhlkoauthuser0">link : https://chromewebstore.google.com/detail/fjodbpikdciljgollogaefihdnkfnile/preview?hl=ko&amp;authuser=0</h6>
@@ -231,14 +335,14 @@ kerupani129님의 ubuntu로 최신 ruby를 설치하는 법: https://qiita.com/k
 
 <p>Consider the date now : ${isoString}.\n" + “Required json format is as follow\n\</p>
 
-<p>{ "starting_date_time": "YYYY-MM-DDThh:mm:ss", "end_date_time": "YYYY-MM-DDThh:mm:ss", "title": "Title of the event", "description": "description of the meeting, meeting room url, address of the place, etc." }`</p>]]></content><author><name></name></author><category term="projects" /><category term="Blog" /><summary type="html"><![CDATA[One simple idea that integrates AI into]]></summary></entry><entry><title type="html">github.io 블로그 시작하기</title><link href="/blog/2024/06/22/github-blog-start.html" rel="alternate" type="text/html" title="github.io 블로그 시작하기" /><published>2024-06-22T00:00:00+09:00</published><updated>2024-06-22T00:00:00+09:00</updated><id>/blog/2024/06/22/github-blog-start</id><content type="html" xml:base="/blog/2024/06/22/github-blog-start.html"><![CDATA[<p>이 글의 제목은 github.io 블로그 시작하기이고
+<p>{ "starting_date_time": "YYYY-MM-DDThh:mm:ss", "end_date_time": "YYYY-MM-DDThh:mm:ss", "title": "Title of the event", "description": "description of the meeting, meeting room url, address of the place, etc." }`</p>]]></content><author><name>Doehyung Lee</name></author><category term="projects" /><category term="Blog" /><summary type="html"><![CDATA[One simple idea that integrates AI into]]></summary></entry><entry><title type="html">github.io 블로그 시작하기</title><link href="http://localhost:4000/blog/2024/06/22/github-blog-start.html" rel="alternate" type="text/html" title="github.io 블로그 시작하기" /><published>2024-06-22T00:00:00+09:00</published><updated>2024-06-22T00:00:00+09:00</updated><id>http://localhost:4000/blog/2024/06/22/github-blog-start</id><content type="html" xml:base="http://localhost:4000/blog/2024/06/22/github-blog-start.html"><![CDATA[<p>이 글의 제목은 github.io 블로그 시작하기이고
 마지막으로 수정된 시간은 이다.</p>
 
 <p>Github Pages 튜토리얼을 따라해서 작성함.
 https://devinlife.com/howto/</p>
 
 <p>Ruby는 sudo apt install 로 설치하면 안됨. 이하 참조
-https://qiita.com/kerupani129/items/77dd1e3390b53f4e97b2</p>]]></content><author><name></name></author><category term="Blog" /><category term="Blog" /><summary type="html"><![CDATA[GitHub Blog 서비스인 github.io 블로그 시작하기로 했다.]]></summary></entry><entry><title type="html">Concept of Auto Schedule Register</title><link href="/auto-schedule-register/2024/06/22/start.html" rel="alternate" type="text/html" title="Concept of Auto Schedule Register" /><published>2024-06-22T00:00:00+09:00</published><updated>2024-06-22T00:00:00+09:00</updated><id>/auto-schedule-register/2024/06/22/start</id><content type="html" xml:base="/auto-schedule-register/2024/06/22/start.html"><![CDATA[]]></content><author><name></name></author><category term="auto-schedule-register" /><category term="Blog" /><summary type="html"><![CDATA[Not a super genius idea but one simple idea that integrates AI into our lives]]></summary></entry><entry><title type="html">블로그 운영 계획</title><link href="/blog/2024/06/22/%EB%B8%94%EB%A1%9C%EA%B7%B8-%EC%9A%B4%EC%98%81-%EA%B3%84%ED%9A%8D.html" rel="alternate" type="text/html" title="블로그 운영 계획" /><published>2024-06-22T00:00:00+09:00</published><updated>2024-06-22T00:00:00+09:00</updated><id>/blog/2024/06/22/%EB%B8%94%EB%A1%9C%EA%B7%B8-%EC%9A%B4%EC%98%81-%EA%B3%84%ED%9A%8D</id><content type="html" xml:base="/blog/2024/06/22/%EB%B8%94%EB%A1%9C%EA%B7%B8-%EC%9A%B4%EC%98%81-%EA%B3%84%ED%9A%8D.html"><![CDATA[<p>블로그의 주된 목적은 취활이나, 이것저것 내가 생각한 것들을 적어서 올릴 것 같다. 포스팅할 때 사용하는 언어는 일본어로 할까 영어로 할까 고민 중. 일본어가 더 편하지만 그래도 영어로 써두는 게 나중에 더 이득이 되겠지?</p>
+https://qiita.com/kerupani129/items/77dd1e3390b53f4e97b2</p>]]></content><author><name>Doehyung Lee</name></author><category term="Blog" /><category term="Blog" /><summary type="html"><![CDATA[GitHub Blog 서비스인 github.io 블로그 시작하기로 했다.]]></summary></entry><entry><title type="html">Concept of Auto Schedule Register</title><link href="http://localhost:4000/auto-schedule-register/2024/06/22/start.html" rel="alternate" type="text/html" title="Concept of Auto Schedule Register" /><published>2024-06-22T00:00:00+09:00</published><updated>2024-06-22T00:00:00+09:00</updated><id>http://localhost:4000/auto-schedule-register/2024/06/22/start</id><content type="html" xml:base="http://localhost:4000/auto-schedule-register/2024/06/22/start.html"><![CDATA[]]></content><author><name>Doehyung Lee</name></author><category term="auto-schedule-register" /><category term="Blog" /><summary type="html"><![CDATA[Not a super genius idea but one simple idea that integrates AI into our lives]]></summary></entry><entry><title type="html">블로그 운영 계획</title><link href="http://localhost:4000/blog/2024/06/22/%EB%B8%94%EB%A1%9C%EA%B7%B8-%EC%9A%B4%EC%98%81-%EA%B3%84%ED%9A%8D.html" rel="alternate" type="text/html" title="블로그 운영 계획" /><published>2024-06-22T00:00:00+09:00</published><updated>2024-06-22T00:00:00+09:00</updated><id>http://localhost:4000/blog/2024/06/22/%EB%B8%94%EB%A1%9C%EA%B7%B8-%EC%9A%B4%EC%98%81-%EA%B3%84%ED%9A%8D</id><content type="html" xml:base="http://localhost:4000/blog/2024/06/22/%EB%B8%94%EB%A1%9C%EA%B7%B8-%EC%9A%B4%EC%98%81-%EA%B3%84%ED%9A%8D.html"><![CDATA[<p>블로그의 주된 목적은 취활이나, 이것저것 내가 생각한 것들을 적어서 올릴 것 같다. 포스팅할 때 사용하는 언어는 일본어로 할까 영어로 할까 고민 중. 일본어가 더 편하지만 그래도 영어로 써두는 게 나중에 더 이득이 되겠지?</p>
 
 <p>그래서 어떤 카테고리를 쓸거냐면…</p>
 <ul>
@@ -246,10 +350,10 @@ https://qiita.com/kerupani129/items/77dd1e3390b53f4e97b2</p>]]></content><author
   <li>공부 내용 정리</li>
   <li>잡담, 생각 등
 주로 이 3개를 작성하게 될 것 같다.</li>
-</ul>]]></content><author><name></name></author><category term="Blog" /><category term="Blog" /><summary type="html"><![CDATA[작심삼일을 반복할 것이 뻔하다]]></summary></entry><entry><title type="html">Who I Am</title><link href="/who-i-am/2024/06/22/who-i-am.html" rel="alternate" type="text/html" title="Who I Am" /><published>2024-06-22T00:00:00+09:00</published><updated>2024-06-22T00:00:00+09:00</updated><id>/who-i-am/2024/06/22/who-i-am</id><content type="html" xml:base="/who-i-am/2024/06/22/who-i-am.html"><![CDATA[<h4 id="education">Education</h4>
+</ul>]]></content><author><name>Doehyung Lee</name></author><category term="Blog" /><category term="Blog" /><summary type="html"><![CDATA[작심삼일을 반복할 것이 뻔하다]]></summary></entry><entry><title type="html">Who I Am</title><link href="http://localhost:4000/who-i-am/2024/06/22/who-i-am.html" rel="alternate" type="text/html" title="Who I Am" /><published>2024-06-22T00:00:00+09:00</published><updated>2024-06-22T00:00:00+09:00</updated><id>http://localhost:4000/who-i-am/2024/06/22/who-i-am</id><content type="html" xml:base="http://localhost:4000/who-i-am/2024/06/22/who-i-am.html"><![CDATA[<h4 id="education">Education</h4>
 <p>2020-2024 Tokyo Institute of Technology 
 2024-Present Tokyo Institute of Technology 
-permalink: - who-i-am</p>]]></content><author><name></name></author><category term="who-i-am" /><summary type="html"><![CDATA[Who am I?]]></summary></entry><entry><title type="html">github.io 블로그 시작하기</title><link href="/just-notes/2024/06/22/github-blog-start.html" rel="alternate" type="text/html" title="github.io 블로그 시작하기" /><published>2024-06-22T00:00:00+09:00</published><updated>2024-06-22T00:00:00+09:00</updated><id>/just-notes/2024/06/22/github-blog-start</id><content type="html" xml:base="/just-notes/2024/06/22/github-blog-start.html"><![CDATA[<p>이 글의 제목은 github.io 블로그 시작하기이고
+permalink: - who-i-am</p>]]></content><author><name>Doehyung Lee</name></author><category term="who-i-am" /><summary type="html"><![CDATA[Who am I?]]></summary></entry><entry><title type="html">github.io 블로그 시작하기</title><link href="http://localhost:4000/just-notes/2024/06/22/github-blog-start.html" rel="alternate" type="text/html" title="github.io 블로그 시작하기" /><published>2024-06-22T00:00:00+09:00</published><updated>2024-06-22T00:00:00+09:00</updated><id>http://localhost:4000/just-notes/2024/06/22/github-blog-start</id><content type="html" xml:base="http://localhost:4000/just-notes/2024/06/22/github-blog-start.html"><![CDATA[<p>이 글의 제목은 github.io 블로그 시작하기이고
 마지막으로 수정된 시간은 2024-06-22 00:00:00 +0900이다.</p>
 
 <p>Github Pages 튜토리얼을 따라해서 작성함.
@@ -259,4 +363,4 @@ https://devinlife.com/howto/</p>
 https://qiita.com/kerupani129/items/77dd1e3390b53f4e97b2</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bundle exec jekyll serve
-</code></pre></div></div>]]></content><author><name></name></author><category term="just-notes" /><category term="Blog" /><summary type="html"><![CDATA[GitHub Blog 서비스인 github.io 블로그 시작하기로 했다.]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name>Doehyung Lee</name></author><category term="just-notes" /><category term="Blog" /><summary type="html"><![CDATA[GitHub Blog 서비스인 github.io 블로그 시작하기로 했다.]]></summary></entry></feed>

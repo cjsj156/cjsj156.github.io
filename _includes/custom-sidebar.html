@@ -1,0 +1,66 @@
+{% if page.author_profile or layout.author_profile or page.sidebar %}
+  <div class="sidebar sticky">
+  {% if page.author_profile or layout.author_profile %}{% include author-profile.html %}{% endif %}
+  {% if page.sidebar %}
+<!--    {% for s in page.sidebar %}
+      {% if s.image %}
+        <img src="{{ s.image | relative_url }}"
+             alt="{% if s.image_alt %}{{ s.image_alt }}{% endif %}">
+      {% endif %}
+      {% if s.title %}<h3>{{ s.title }}</h3>{% endif %}
+      {% if s.text %}{{ s.text | markdownify }}{% endif %}
+      {% if s.nav %}{% include nav_list nav=s.nav %}{% endif %}
+    {% endfor %}
+    {% if page.sidebar.nav %}
+      {% include nav_list nav=page.sidebar.nav %}
+    {% endif %}
+	<label for="ac-toc">{{ site.data.ui-text[site.locale].menu_label | default: "Toggle Menu" }}</label> -->
+	<nav class="nav__list">
+	  <ul class="nav__items">
+	    <li>
+	      <span class="nav__sub-title">Just Notes</span>
+	      <ul>
+	        {% assign just_notes = site.posts | where_exp: "item", "item.path contains 'just-notes'" %}
+	        {% for post in just_notes %}
+	          <li>
+	            <a href="{{ post.url | relative_url }}"{% if post.url == page.url %} class="active"{% endif %}>
+	              {{ post.title }}
+	            </a>
+	          </li>
+	        {% endfor %}
+	      </ul>
+	    </li>
+	
+	    <li>
+	      <span class="nav__sub-title">Projects</span>
+	      <ul>
+	        {% assign projects = site.posts | where_exp: "item", "item.path contains 'projects'" %}
+	        {% for post in projects %}
+	          <li>
+	            <a href="{{ post.url | relative_url }}"{% if post.url == page.url %} class="active"{% endif %}>
+	              {{ post.title }}
+	            </a>
+	          </li>
+	        {% endfor %}
+	      </ul>
+	    </li>
+	
+	    <li>
+	      <span class="nav__sub-title">Study Notes</span>
+	      <ul>
+	        {% assign study_notes = site.posts | where_exp: "item", "item.path contains 'study-notes'" %}
+	        {% for post in study_notes %}
+	          <li>
+	            <a href="{{ post.url | relative_url }}"{% if post.url == page.url %} class="active"{% endif %}>
+	              {{ post.title }}
+	            </a>
+	          </li>
+	        {% endfor %}
+	      </ul>
+	    </li>
+	  </ul>
+	</nav>
+	
+  {% endif %}
+  </div>
+{% endif %}

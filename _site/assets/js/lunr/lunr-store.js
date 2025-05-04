@@ -60,14 +60,14 @@ var store = [{
         "teaser": null
       },{
         "title": "블로그 운영용 메모",
-        "excerpt":"참고: 취미로 코딩하는 개발자님의 github pages 튜토리얼: https://devinlife.com/howto/ jekyll 공식 웹사이트: https://jekyllrb.com/docs/usage/ kerupani129님의 ubuntu로 최신 ruby를 설치하는 법: https://qiita.com/kerupani129/items/77dd1e3390b53f4e97b2 Github Pages란? github pages는 호스팅할 내용을 markdown 파일로 github repo에 올리면, 그 내용을 Jekyll을 사용해서 markdown 을 html 로 변환하고 호스팅해주는 서비스임. Jekyll이란? ruby 로 작성된 프로그램으로, markdown 파일을 호스팅 가능한...","categories": [],
+        "excerpt":"Github Pages란? github pages는 호스팅할 내용을 markdown 파일로 github repo에 올리면, 그 내용을 Jekyll을 사용해서 markdown 을 html 로 변환하고 호스팅해주는 서비스임. Jekyll이란? ruby 로 작성된 프로그램으로, markdown 파일을 호스팅 가능한 html 파일 등으로 변환시켜주는 프로그램. gem 이라는 ruby에서의 패키지 인스톨러를 통해 설치할 수 있음. 구체적으로 뭘 하면 되나? 로컬에서...","categories": [],
         "tags": [],
         "url": "/2025/05/03/%EB%B8%94%EB%A1%9C%EA%B7%B8-%EC%9A%B4%EC%98%81%EC%9A%A9-%EB%A9%94%EB%AA%A8.html",
         "teaser": null
       },{
-        "title": "Welcome to Jekyll!",
-        "excerpt":"You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run jekyll serve, which launches a web server and auto-regenerates your site when...","categories": ["jekyll","update"],
-        "tags": [],
-        "url": "/jekyll/update/2025/05/03/welcome-to-jekyll.html",
+        "title": "Tried Vulkan for Image Resizing",
+        "excerpt":"Can we make image processing faster with smartphone GPU with Vulkan? Background Nefrock, the company where I worked on this project, wanted to examine the possibility of optimizing image preprocessing using the GPU of a smartphone. They’re providing a service for real-time OCR on smartphones, and while the deep learning...","categories": ["projects"],
+        "tags": ["Blog"],
+        "url": "/projects/2025/05/04/Tried-Vulkan-for-Image-Resizing.html",
         "teaser": null
       }]
