@@ -27,6 +27,16 @@ url: "https://cjsj156/cjsj156.github.io" # the base hostname & protocol for your
 twitter_username: None
 github_username:  cjsj166
 name: "Doehyung Lee"
+header:
+  nav: "main"
+defalts:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      sidebar:
+        nav: "docs"
+
 
 # Build settings
 # theme: minimal-mistake-jekyll
