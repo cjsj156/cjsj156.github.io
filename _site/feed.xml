@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2025-05-03T23:44:57+09:00</updated><id>/feed.xml</id><title type="html">Your awesome title</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Welcome to Jekyll!</title><link href="/jekyll/update/2025/05/03/welcome-to-jekyll.html" rel="alternate" type="text/html" title="Welcome to Jekyll!" /><published>2025-05-03T23:34:28+09:00</published><updated>2025-05-03T23:34:28+09:00</updated><id>/jekyll/update/2025/05/03/welcome-to-jekyll</id><content type="html" xml:base="/jekyll/update/2025/05/03/welcome-to-jekyll.html"><![CDATA[<p>You’ll find this post in your <code class="language-plaintext highlighter-rouge">_posts</code> directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run <code class="language-plaintext highlighter-rouge">jekyll serve</code>, which launches a web server and auto-regenerates your site when a file is updated.</p>
+
+<p>Jekyll requires blog post files to be named according to the following format:</p>
+
+<p><code class="language-plaintext highlighter-rouge">YEAR-MONTH-DAY-title.MARKUP</code></p>
+
+<p>Where <code class="language-plaintext highlighter-rouge">YEAR</code> is a four-digit number, <code class="language-plaintext highlighter-rouge">MONTH</code> and <code class="language-plaintext highlighter-rouge">DAY</code> are both two-digit numbers, and <code class="language-plaintext highlighter-rouge">MARKUP</code> is the file extension representing the format used in the file. After that, include the necessary front matter. Take a look at the source for this post to get an idea about how it works.</p>
+
+<p>Jekyll also offers powerful support for code snippets:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">print_hi</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span>
+  <span class="nb">puts</span> <span class="s2">"Hi, </span><span class="si">#{</span><span class="nb">name</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+<span class="n">print_hi</span><span class="p">(</span><span class="s1">'Tom'</span><span class="p">)</span>
+<span class="c1">#=&gt; prints 'Hi, Tom' to STDOUT.</span></code></pre></figure>
+
+<p>Check out the <a href="https://jekyllrb.com/docs/home">Jekyll docs</a> for more info on how to get the most out of Jekyll. File all bugs/feature requests at <a href="https://github.com/jekyll/jekyll">Jekyll’s GitHub repo</a>. If you have questions, you can ask them on <a href="https://talk.jekyllrb.com/">Jekyll Talk</a>.</p>]]></content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html"><![CDATA[You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run jekyll serve, which launches a web server and auto-regenerates your site when a file is updated.]]></summary></entry><entry><title type="html">블로그 운영용 메모</title><link href="/2025/05/03/%EB%B8%94%EB%A1%9C%EA%B7%B8-%EC%9A%B4%EC%98%81%EC%9A%A9-%EB%A9%94%EB%AA%A8.html" rel="alternate" type="text/html" title="블로그 운영용 메모" /><published>2025-05-03T00:00:00+09:00</published><updated>2025-05-03T00:00:00+09:00</updated><id>/2025/05/03/%EB%B8%94%EB%A1%9C%EA%B7%B8%20%EC%9A%B4%EC%98%81%EC%9A%A9%20%EB%A9%94%EB%AA%A8</id><content type="html" xml:base="/2025/05/03/%EB%B8%94%EB%A1%9C%EA%B7%B8-%EC%9A%B4%EC%98%81%EC%9A%A9-%EB%A9%94%EB%AA%A8.html"><![CDATA[<p>참고:
+취미로 코딩하는 개발자님의 github pages 튜토리얼: https://devinlife.com/howto/
+jekyll 공식 웹사이트: https://jekyllrb.com/docs/usage/
+kerupani129님의 ubuntu로 최신 ruby를 설치하는 법: https://qiita.com/kerupani129/items/77dd1e3390b53f4e97b2</p>
+
+<h3 id="github-pages란">Github Pages란?</h3>
+<p>github pages는 호스팅할 내용을 markdown 파일로 github repo에 올리면, 그 내용을 Jekyll을 사용해서 markdown 을 html 로 변환하고 호스팅해주는 서비스임.</p>
+
+<h3 id="jekyll이란">Jekyll이란?</h3>
+<p>ruby 로 작성된 프로그램으로, markdown 파일을 호스팅 가능한 html 파일 등으로 변환시켜주는 프로그램. gem 이라는 ruby에서의 패키지 인스톨러를 통해 설치할 수 있음.</p>
+
+<h3 id="구체적으로-뭘-하면-되나">구체적으로 뭘 하면 되나?</h3>
+
+<p>로컬에서 만든 프로젝트에</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bundle exec jekyll serve
+</code></pre></div></div>
+<p>로 build, hosting을 해보고, build랑 로컬에서의 호스팅이 제대로 되는 것을 확인.
+이후에 git push</p>
+
+<h3 id="bundle은-뭔가">bundle은 뭔가?</h3>
+<p>bundle은 ruby project의 의존성을 관리해주는 녀석임. 
+<code class="language-plaintext highlighter-rouge">bundle exec</code> 하면, 현재 Ruby 프로젝트에 명시된 패키지(gem) 들만 사용해서 명령을 실행함.</p>
+
+<h3 id="의존성관리에-관해-ruby와-python을-비교한다면">의존성관리에 관해 ruby와 python을 비교한다면?</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>요소</th>
+      <th>역할</th>
+      <th>Python 비유</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">gem</code></td>
+      <td>패키지 관리 명령어</td>
+      <td><code class="language-plaintext highlighter-rouge">pip</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">jekyll</code></td>
+      <td>설치 대상 패키지</td>
+      <td><code class="language-plaintext highlighter-rouge">mkdocs</code>, <code class="language-plaintext highlighter-rouge">flask</code> 등</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Gemfile</code></td>
+      <td>의존성 선언 파일</td>
+      <td><code class="language-plaintext highlighter-rouge">requirements.txt</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">bundler</code></td>
+      <td>의존성 관리 도구</td>
+      <td><code class="language-plaintext highlighter-rouge">pip</code> + <code class="language-plaintext highlighter-rouge">virtualenv</code> 유사</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">bundle install</code></td>
+      <td>의존성 설치</td>
+      <td><code class="language-plaintext highlighter-rouge">pip install -r requirements.txt</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">bundle exec</code></td>
+      <td>지정된 환경에서 실행</td>
+      <td><code class="language-plaintext highlighter-rouge">source venv/bin/activate &amp;&amp; python ...</code> 유사</td>
+    </tr>
+  </tbody>
+</table>]]></content><author><name></name></author><summary type="html"><![CDATA[참고: 취미로 코딩하는 개발자님의 github pages 튜토리얼: https://devinlife.com/howto/ jekyll 공식 웹사이트: https://jekyllrb.com/docs/usage/ kerupani129님의 ubuntu로 최신 ruby를 설치하는 법: https://qiita.com/kerupani129/items/77dd1e3390b53f4e97b2]]></summary></entry><entry><title type="html">팀 랩 면접 봄</title><link href="/just-notes/2024/07/03/%ED%8C%80%EB%9E%A9-%EB%A9%B4%EC%A0%91-%EB%B4%84.html" rel="alternate" type="text/html" title="팀 랩 면접 봄" /><published>2024-07-03T00:00:00+09:00</published><updated>2024-07-03T00:00:00+09:00</updated><id>/just-notes/2024/07/03/%ED%8C%80%EB%9E%A9%20%EB%A9%B4%EC%A0%91%20%EB%B4%84</id><content type="html" xml:base="/just-notes/2024/07/03/%ED%8C%80%EB%9E%A9-%EB%A9%B4%EC%A0%91-%EB%B4%84.html"><![CDATA[<h4 id="질문대답">질문&amp;대답</h4>
+<ul>
+  <li>지원동기 -&gt; 벤처기업 체험 -&gt; 근데 우리 이제 벤처 아님 -&gt; ? ㅋㅋㅋㅋㅋㅋㅋㅋ</li>
+  <li>자기소개 -&gt; 일본에서 대학 나왓구요 지금 석사하고요….</li>
+  <li>개미/벌 인식 라인트레이싱에서 어떤 식으로 모델을 만들었는지 -&gt; 까먹어서 열심히 지어냈음. 모델 고르고 데이터 모아서 파인튜닝했다고 적당히 말함. 아마 여기서 뭔가 특별한 걸 했는지 알고 싶었는듯?</li>
+  <li>3관절 로봇 프로젝트에서 자기가 맡은 역할 (팀 개발 경험) -&gt; 수업에서 배운 이론을 코드화하는 것을 했다고 함.</li>
+  <li>자신의 연구의 차별점은 무엇인지 -&gt; 기밀이라 말할 수 없음</li>
+  <li>배속되고 싶은 팀은 어디인지 -&gt; 화상처리 -&gt; 오 요즘애들은 기계학습하고싶어하던데… -&gt; 어라? 그게 분리되어있어요?? ㅋㅋㅋㅋㅋㅋㅋ</li>
+</ul>
+
+<h4 id="소감">소감</h4>
+<ul>
+  <li>일단 벤쳐가 아닌듯? ㅋㅋㅋㅋㅋ</li>
+  <li>자기소개는 일단 준비해가야할 듯</li>
+  <li>주로 전문성을 묻는 느낌.</li>
+  <li>팀프로젝트 경험도 중요시하는 듯</li>
+  <li>이전 프로젝트를 기반으로 한 질문이 많았음. 이렇게 되면 CV 프로젝트를 좀 해두는 게 좋겠는데?</li>
+  <li>연구 관련된 내용도 있었음. 학사 때 한 내용이랑 석사 때 한 내용을 좀 나눠서 얘기하는 게 좋을지도?</li>
+  <li>팀이 화상처리 &lt;-&gt; 기계학습으로 나뉘어져있음 -&gt; 이건 좀 급소였네? 난 당연히 둘 다 하는 건 줄 알았는데 말이지</li>
+  <li>화상처리는 좀 더 엄격한 수학적인 처리에 가까움.</li>
+  <li>기계학습은 이미지의 딥러닝도 포함해서 하는 것.</li>
+</ul>]]></content><author><name></name></author><category term="just-notes" /><summary type="html"><![CDATA[망한듯 ㅋㅋㅋㅋㅋ]]></summary></entry><entry><title type="html">主成分分析の幾何学的な意味</title><link href="/study-notes/2024/06/30/%E4%B8%BB%E6%88%90%E5%88%86%E5%88%86%E6%9E%90%E3%81%AE%E5%B9%BE%E4%BD%95%E5%AD%A6%E7%9A%84%E3%81%AA%E6%84%8F%E5%91%B3.html" rel="alternate" type="text/html" title="主成分分析の幾何学的な意味" /><published>2024-06-30T00:00:00+09:00</published><updated>2024-06-30T00:00:00+09:00</updated><id>/study-notes/2024/06/30/%E4%B8%BB%E6%88%90%E5%88%86%E5%88%86%E6%9E%90%E3%81%AE%E5%B9%BE%E4%BD%95%E5%AD%A6%E7%9A%84%E3%81%AA%E6%84%8F%E5%91%B3</id><content type="html" xml:base="/study-notes/2024/06/30/%E4%B8%BB%E6%88%90%E5%88%86%E5%88%86%E6%9E%90%E3%81%AE%E5%B9%BE%E4%BD%95%E5%AD%A6%E7%9A%84%E3%81%AA%E6%84%8F%E5%91%B3.html"><![CDATA[<h4 id="問題認識">問題認識</h4>
+<p>講義を受ける中で主成分分析の主軸方向が共分散行列の固有ベクトルになるということが納得が行かず、幾何学的な理解方法はないか考察してみることにした。</p>
+
+<h4 id="結論">結論</h4>
+<ul>
+  <li>共分散行列はベクトルを楕円(体)に伸ばす線形変換</li>
+  <li>その楕円の長軸、短軸が主軸になる。（2次元の場合）</li>
+  <li>その軸に射影をすることで次元削減ができる。</li>
+</ul>
+
+<h4 id="説明">説明</h4>
+<p>以下のように2次元座標軸の原点を中心に円状に分散している点があると使用。
+<img src="/assets/images/PCA1.png" alt="" /></p>
+
+<p>この点に対してある共分散行列で線形変換を行うと、以下のようになる。
+<img src="/assets/images/PCA2.png" alt="" /></p>
+
+<p>その共分散行列が表している分布になるように変換される。
+ここではその共分散行列がxy方向に多く伸ばされるものだったとすると、
+線形変換後にはあの橙色の点になる。</p>
+
+<p>ここで主成分分析の主軸というのは楕円の長軸と短軸になる。
+長軸に対して射影をし、その長軸を新しい軸にするとデータのばらつきが一番大きい部分を残す（情報を残す）ことができる。</p>
+
+<p>主軸が楕円の軸になるということから、主軸同士がどうして垂直関係になるのかも直感的に理解できる。</p>]]></content><author><name></name></author><category term="study-notes" /><summary type="html"><![CDATA[主成分分析の幾何学的な意味]]></summary></entry><entry><title type="html">Auto Schedule Register</title><link href="/projects/2024/06/23/Auto-Schedule-Register.html" rel="alternate" type="text/html" title="Auto Schedule Register" /><published>2024-06-23T00:00:00+09:00</published><updated>2024-06-23T00:00:00+09:00</updated><id>/projects/2024/06/23/Auto-Schedule-Register</id><content type="html" xml:base="/projects/2024/06/23/Auto-Schedule-Register.html"><![CDATA[<h2 id="auto-schedule-register">Auto Schedule Register</h2>
+
+<h6 id="github--httpsgithubcomcjsj166auto-schedule-register">github : https://github.com/cjsj166/auto-schedule-register</h6>
+<h6 id="link--httpschromewebstoregooglecomdetailfjodbpikdciljgollogaefihdnkfnilepreviewhlkoauthuser0">link : https://chromewebstore.google.com/detail/fjodbpikdciljgollogaefihdnkfnile/preview?hl=ko&amp;authuser=0</h6>
+
+<p>##</p>
+
+<p>“Information about arranged schedule will be provided.\n\</p>
+
+<p>Do your best to describe the schedule as concisely as possible in json format.\n\</p>
+
+<p>Required json format is as follow\nY:year M:month D:day h:hour m:minute s:second X:unknown\n\</p>
+
+<p>You can use X instead of any other character if you cannot determine specific year, month, date ex)XXXX-02-13T15:20:00\n\</p>
+
+<p>{ "starting_date_time": "YYYY-MM-DDThh:mm:ss", "end_date_time": "YYYY-MM-DDThh:mm:ss", "title": "Title of the event", "description": "description of the meeting, meeting room url, address of the place, etc." }”</p>
+
+<p>//</p>
+
+<p>“Information about arranged schedule will be provided.\n\</p>
+
+<p>Do your best to describe the schedule as concisely as possible in json format.\n\</p>
+
+<p>Required json format is as follow.\n\</p>
+
+<p>{ "starting_date_time": "YYYY-MM-DDThh:mm:ss", "end_date_time": "YYYY-MM-DDThh:mm:ss", "title": "Title of the event", "description": "description of the meeting, meeting room url, address of the place, etc." }\n\</p>
+
+<p>If you only know relative time duration, the json format should be as follow.\n\</p>
+
+<p>{ "starting_date_time": "PnYnMnDTnHnMnS", "end_date_time": "PnYnMnDTnHnMnS", "title": "Title of the event", "description": "description of the meeting, meeting room url, address of the place, etc." }”</p>
+
+<p>//</p>
+
+<p>“Information about arranged schedule will be provided.\n\</p>
+
+<p>Do your best to describe the schedule as concisely as possible in json format.\n\</p>
+
+<p>Required json format is as follow.\n\</p>
+
+<p>{ "starting_date_time": "PnYnMnDTnHnMnS", "end_date_time": "PnYnMnDTnHnMnS", "title": "Title of the event", "description": "description of the meeting, meeting room url, address of the place, etc." }\</p>
+
+<p>The ISO 8601 duration format "PnYnMnDTnHnMnS" represents a time interval from now:\n\</p>
+
+<p>P: Period start.\n\</p>
+
+<p>nY: Number of years.\n\</p>
+
+<p>nM: Number of months.\n\</p>
+
+<p>nW: Number of weeks.\n\</p>
+
+<p>nD: Number of days.\n\</p>
+
+<p>T: Time start (separates date and time).\n\</p>
+
+<p>nH: Number of hours.\n\</p>
+
+<p>nM: Number of minutes.\n\</p>
+
+<p>nS: Number of seconds.\n\</p>
+
+<p>If you know the exact time, the json format should be as follow.\n\</p>
+
+<p>{ "starting_date_time": "YYYY-MM-DDThh:mm:ss", "end_date_time": "YYYY-MM-DDThh:mm:ss", "title": "Title of the event", "description": "description of the meeting, meeting room url, address of the place, etc." }”</p>
+
+<p>//</p>
+
+<p>“Information about arranged schedule will be provided.\n\</p>
+
+<p>Do your best to describe the schedule as concisely as possible in json format.\n\</p>
+
+<p>Required json format is as follow.\n\</p>
+
+<p>{ "starting_date_time": "PnYnMnDTnHnMnS", "end_date_time": "PnYnMnDTnHnMnS", "title": "Title of the event", "description": "description of the meeting, meeting room url, address of the place, etc." }\</p>
+
+<p>The ISO 8601 duration format "PnYnMnDTnHnMnS" represents a time interval from now:\n\</p>
+
+<p>P: Period start.\n\</p>
+
+<p>nY: Number of years.\n\</p>
+
+<p>nM: Number of months.\n\</p>
+
+<p>nW: Number of weeks.\n\</p>
+
+<p>nD: Number of days.\n\</p>
+
+<p>T: Time start (separates date and time).\n\</p>
+
+<p>nH: Number of hours.\n\</p>
+
+<p>nM: Number of minutes.\n\</p>
+
+<p>nS: Number of seconds.\n\</p>
+
+<p>If you know the exact time, the json format should be as follow.\n\</p>
+
+<p>{ "starting_date_time": "YYYY-MM-DDThh:mm:ss", "end_date_time": "YYYY-MM-DDThh:mm:ss", "title": "Title of the event", "description": "description of the meeting, meeting room url, address of the place, etc." }”</p>
+
+<p>//</p>
+
+<p>  `Information about arranged schedule will be provided.\n\</p>
+
+<p>Do your best to describe the schedule as concisely as possible in json format.\n\</p>
+
+<p>Consider the date now : ${isoString}.\n" + “Required json format is as follow\n\</p>
+
+<p>{ "starting_date_time": "YYYY-MM-DDThh:mm:ss", "end_date_time": "YYYY-MM-DDThh:mm:ss", "title": "Title of the event", "description": "description of the meeting, meeting room url, address of the place, etc." }`</p>]]></content><author><name></name></author><category term="projects" /><category term="Blog" /><summary type="html"><![CDATA[One simple idea that integrates AI into]]></summary></entry><entry><title type="html">github.io 블로그 시작하기</title><link href="/blog/2024/06/22/github-blog-start.html" rel="alternate" type="text/html" title="github.io 블로그 시작하기" /><published>2024-06-22T00:00:00+09:00</published><updated>2024-06-22T00:00:00+09:00</updated><id>/blog/2024/06/22/github-blog-start</id><content type="html" xml:base="/blog/2024/06/22/github-blog-start.html"><![CDATA[<p>이 글의 제목은 github.io 블로그 시작하기이고
+마지막으로 수정된 시간은 이다.</p>
+
+<p>Github Pages 튜토리얼을 따라해서 작성함.
+https://devinlife.com/howto/</p>
+
+<p>Ruby는 sudo apt install 로 설치하면 안됨. 이하 참조
+https://qiita.com/kerupani129/items/77dd1e3390b53f4e97b2</p>]]></content><author><name></name></author><category term="Blog" /><category term="Blog" /><summary type="html"><![CDATA[GitHub Blog 서비스인 github.io 블로그 시작하기로 했다.]]></summary></entry><entry><title type="html">Concept of Auto Schedule Register</title><link href="/auto-schedule-register/2024/06/22/start.html" rel="alternate" type="text/html" title="Concept of Auto Schedule Register" /><published>2024-06-22T00:00:00+09:00</published><updated>2024-06-22T00:00:00+09:00</updated><id>/auto-schedule-register/2024/06/22/start</id><content type="html" xml:base="/auto-schedule-register/2024/06/22/start.html"><![CDATA[]]></content><author><name></name></author><category term="auto-schedule-register" /><category term="Blog" /><summary type="html"><![CDATA[Not a super genius idea but one simple idea that integrates AI into our lives]]></summary></entry><entry><title type="html">블로그 운영 계획</title><link href="/blog/2024/06/22/%EB%B8%94%EB%A1%9C%EA%B7%B8-%EC%9A%B4%EC%98%81-%EA%B3%84%ED%9A%8D.html" rel="alternate" type="text/html" title="블로그 운영 계획" /><published>2024-06-22T00:00:00+09:00</published><updated>2024-06-22T00:00:00+09:00</updated><id>/blog/2024/06/22/%EB%B8%94%EB%A1%9C%EA%B7%B8-%EC%9A%B4%EC%98%81-%EA%B3%84%ED%9A%8D</id><content type="html" xml:base="/blog/2024/06/22/%EB%B8%94%EB%A1%9C%EA%B7%B8-%EC%9A%B4%EC%98%81-%EA%B3%84%ED%9A%8D.html"><![CDATA[<p>블로그의 주된 목적은 취활이나, 이것저것 내가 생각한 것들을 적어서 올릴 것 같다. 포스팅할 때 사용하는 언어는 일본어로 할까 영어로 할까 고민 중. 일본어가 더 편하지만 그래도 영어로 써두는 게 나중에 더 이득이 되겠지?</p>
+
+<p>그래서 어떤 카테고리를 쓸거냐면…</p>
+<ul>
+  <li>포트폴리오용 프로젝트 작성</li>
+  <li>공부 내용 정리</li>
+  <li>잡담, 생각 등
+주로 이 3개를 작성하게 될 것 같다.</li>
+</ul>]]></content><author><name></name></author><category term="Blog" /><category term="Blog" /><summary type="html"><![CDATA[작심삼일을 반복할 것이 뻔하다]]></summary></entry><entry><title type="html">Who I Am</title><link href="/who-i-am/2024/06/22/who-i-am.html" rel="alternate" type="text/html" title="Who I Am" /><published>2024-06-22T00:00:00+09:00</published><updated>2024-06-22T00:00:00+09:00</updated><id>/who-i-am/2024/06/22/who-i-am</id><content type="html" xml:base="/who-i-am/2024/06/22/who-i-am.html"><![CDATA[<h4 id="education">Education</h4>
+<p>2020-2024 Tokyo Institute of Technology 
+2024-Present Tokyo Institute of Technology 
+permalink: - who-i-am</p>]]></content><author><name></name></author><category term="who-i-am" /><summary type="html"><![CDATA[Who am I?]]></summary></entry><entry><title type="html">github.io 블로그 시작하기</title><link href="/just-notes/2024/06/22/github-blog-start.html" rel="alternate" type="text/html" title="github.io 블로그 시작하기" /><published>2024-06-22T00:00:00+09:00</published><updated>2024-06-22T00:00:00+09:00</updated><id>/just-notes/2024/06/22/github-blog-start</id><content type="html" xml:base="/just-notes/2024/06/22/github-blog-start.html"><![CDATA[<p>이 글의 제목은 github.io 블로그 시작하기이고
+마지막으로 수정된 시간은 2024-06-22 00:00:00 +0900이다.</p>
+
+<p>Github Pages 튜토리얼을 따라해서 작성함.
+https://devinlife.com/howto/</p>
+
+<p>Ruby는 sudo apt install 로 설치하면 안됨. 이하 참조
+https://qiita.com/kerupani129/items/77dd1e3390b53f4e97b2</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bundle exec jekyll serve
+</code></pre></div></div>]]></content><author><name></name></author><category term="just-notes" /><category term="Blog" /><summary type="html"><![CDATA[GitHub Blog 서비스인 github.io 블로그 시작하기로 했다.]]></summary></entry></feed>
