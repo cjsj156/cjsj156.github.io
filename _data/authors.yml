@@ -1,0 +1,8 @@
+Doehyung Lee:
+  name        : "Doehyung Lee"
+  bio         : "2nd year master students in Institute of Science Tokyo"
+  avatar      : "/assets/author_avatar.png"
+  links:
+    - label: "Email"
+      icon: "fas fa-fw fa-envelope-square"
+      url: "Gmail ID: dohyung200"

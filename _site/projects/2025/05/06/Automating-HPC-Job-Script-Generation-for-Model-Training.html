@@ -24,7 +24,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="3次元を理解しよう">
 <meta property="og:title" content="Automating HPC Job Script Generation for Model Training and Evaluation">
-<meta property="og:url" content="http://localhost:4000/projects/2025/05/06/Automating-HPC-Job-Script-Generation-for-Model-Training.html">
+<meta property="og:url" content="https://cjsj156/cjsj156.github.io/projects/2025/05/06/Automating-HPC-Job-Script-Generation-for-Model-Training.html">
 
 
   <meta property="og:description" content="The ability to make one’s own tools is one of a programmer’s biggest strengths.">
@@ -42,7 +42,7 @@
 
 
 
-<link rel="canonical" href="http://localhost:4000/projects/2025/05/06/Automating-HPC-Job-Script-Generation-for-Model-Training.html">
+<link rel="canonical" href="https://cjsj156/cjsj156.github.io/projects/2025/05/06/Automating-HPC-Job-Script-Generation-for-Model-Training.html">
 
 
 
@@ -82,7 +82,7 @@
 
   </head>
 
-  <body class="layout--single" dir="ltr">
+  <body class="layout--single wide" dir="ltr">
     <nav class="skip-links">
   <ul>
     <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
@@ -133,85 +133,6 @@
   
   <div class="sidebar sticky">
   
-
-
-<div itemscope itemtype="https://schema.org/Person" class="h-card">
-
-  
-
-  <div class="author__content">
-    <h3 class="author__name p-name" itemprop="name">
-      <a class="u-url" rel="me" href="http://localhost:4000/" itemprop="url">Doehyung Lee</a>
-    </h3>
-    
-  </div>
-
-  <div class="author__urls-wrapper">
-    <button class="btn btn--inverse">Follow</button>
-    <ul class="author__urls social-icons">
-      
-
-      
-
-      
-
-      
-
-      
-
-      
-
-      
-
-      
-
-      
-
-      
-
-      
-
-      
-
-      
-
-      
-
-      
-
-      
-
-      
-
-      
-
-      
-
-      
-
-      
-
-      
-
-      
-
-      
-
-      
-
-      
-
-      <!--
-  <li>
-    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
-      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
-    </a>
-  </li>
--->
-    </ul>
-  </div>
-</div>
-
   
 <!--    
       
@@ -410,7 +331,7 @@
       
         <header>
           <h1 id="page-title" class="page__title" itemprop="headline">
-            <a href="http://localhost:4000/projects/2025/05/06/Automating-HPC-Job-Script-Generation-for-Model-Training.html" itemprop="url">Automating HPC Job Script Generation for Model Training and Evaluation
+            <a href="https://cjsj156/cjsj156.github.io/projects/2025/05/06/Automating-HPC-Job-Script-Generation-for-Model-Training.html" itemprop="url">Automating HPC Job Script Generation for Model Training and Evaluation
 </a>
           </h1>
           
@@ -428,30 +349,45 @@
 <p>The figure shows a process of submitting a job to an HPC cluster and executing code.</p>
 
 <p>I often run experiments involving training and testing computer vision models. Recently, I’ve been working with large models like Depth Anything, and in such cases, my local GPU’s VRAM is often insufficient. As a result, I’ve increasingly been using not only lab computers but also TSUBAME—the supercomputer owned by my university. However, an HPC (High Performance Computing) cluster like TSUBAME is a shared resource among multiple users, so I can’t just run my program whenever I want. Instead, I need to submit a script specifying what resources I need and which program I want to run. The system uses this request to allocate appropriate resources and execute the program. This kind of system is called a job scheduling system (or more broadly, a batch system), and the script that includes the code and required resources is called a job.</p>
-
 <h2 id="problem-writing-a-job-script-is-too-tedious">Problem: Writing a job script is too tedious</h2>
-
 <p>Writing that script manually is a tedious task. When running similar experiments repeatedly, the required resources usually don’t change much, but I still had to write the same script over and over again. This manual process also led to frequent mistakes, like inputting the wrong hyperparameters and ending up with useless training runs.</p>
-
 <h2 id="solution-write-a-script-that-manages-job-submission">Solution: Write a script that manages job submission</h2>
 
 <p><img src="/assets/HPC_job_script_generator.png" alt="job_scheduling_system" /></p>
 
-<p>The figure above shows the workflow of a program that automatically generates job scripts. For example, I can call a shell function named <code class="language-plaintext highlighter-rouge">train_manager</code> (defined in <code class="language-plaintext highlighter-rouge">.bashrc</code>) with an argument like <code class="language-plaintext highlighter-rouge">--experiment train_with_batch_4</code>. This shell function then invokes a Python script and passes along the argument. The Python script looks up the hyperparameters for <code class="language-plaintext highlighter-rouge">train_with_batch_4</code> from a file that stores settings for multiple experiment versions. It combines these hyperparameters with a boilerplate job script template to generate the final <code class="language-plaintext highlighter-rouge">train_script</code>. The shell function then receives this script and immediately submits it to the scheduler.
-In a similar manner, I made a pipeline for generating <code class="language-plaintext highlighter-rouge">evaluation_script</code>.</p>
+<p>The figure above shows the workflow of a program that automatically generates job scripts. For example, I can call a shell function named <code class="language-plaintext highlighter-rouge">train_manager</code> (defined in <code class="language-plaintext highlighter-rouge">.bashrc</code>) with an argument like <code class="language-plaintext highlighter-rouge">--experiment train_with_batch_4</code>. This shell function then invokes a Python script and passes along the argument. The Python script looks up the hyper parameters for <code class="language-plaintext highlighter-rouge">train_with_batch_4</code> from a file that stores settings for multiple experiment versions. It combines these hyper parameters with a boilerplate job script template to generate the final <code class="language-plaintext highlighter-rouge">train_script</code>. The shell function then receives this script and immediately submits it to the scheduler.</p>
+<h4 id="shell-function">shell function</h4>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">function </span>train_manager<span class="o">()</span> <span class="o">{</span>
+        conda activate <span class="nb">env
+        local </span><span class="nv">python_script</span><span class="o">=</span><span class="s2">"train_script_composer.py"</span>
+        <span class="nb">local </span><span class="nv">script_path</span><span class="o">=</span><span class="si">$(</span>python <span class="s2">"</span><span class="nv">$python_script</span><span class="s2">"</span> <span class="s2">"</span><span class="nv">$@</span><span class="s2">"</span><span class="si">)</span>
 
-<h3 id="how-i-approached-to-make-the-program">How I approached to make the program</h3>
+        <span class="k">if</span> <span class="o">[[</span> <span class="nv">$script_path</span> <span class="o">!=</span> <span class="s2">"error"</span> <span class="o">]]</span><span class="p">;</span>  <span class="k">then
+                </span>qsub <span class="nt">-g</span> group_name <span class="s2">"</span><span class="nv">$script_path</span><span class="s2">"</span>
+        <span class="k">fi</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<h4 id="python-script">Python script</h4>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">...</span> <span class="c1"># importing modules
+</span>
+<span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="p">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
+<span class="n">parser</span><span class="p">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'--hyper_params'</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s">'default'</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s">"name of your experiment"</span><span class="p">)</span> <span class="c1"># Takes an argument from shell function
+</span><span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="p">.</span><span class="n">parse_args</span><span class="p">()</span>
 
-<p>First, I separated the components required for the job script. These components fall into two categories: (1) the necessary resources, such as the number of CPUs or GPUs, and (2) the hyperparameters or metadata about the experiment—like which dataset to use. I used Python’s <code class="language-plaintext highlighter-rouge">dataclass</code> to define this information. This is a key part of the system, as Python’s <code class="language-plaintext highlighter-rouge">dataclass</code> allows dot notation for accessing member variables, similar to <code class="language-plaintext highlighter-rouge">argparse.Namespace</code>. By replacing the <code class="language-plaintext highlighter-rouge">args</code> object that used to hold a <code class="language-plaintext highlighter-rouge">Namespace</code> with a <code class="language-plaintext highlighter-rouge">dataclass</code>, I could use the same code without any issues. After completing the Python script, I defined a shell function in my <code class="language-plaintext highlighter-rouge">.bashrc</code> that both runs the generated Python script and takes care of submitting the job instead of me. </p>
-
+<span class="n">boilerplate_script_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s">'boilerplate.sh'</span><span class="p">)</span> <span class="c1"># Reads boilerplate script
+</span>
+<span class="p">...</span> <span class="c1"># Putting boilerplate script and hyper parameters for training script arugment together
+</span>
+<span class="k">return</span> <span class="n">train_script_path</span> <span class="c1"># Then return the path of the completed script
+</span>
+</code></pre></div></div>
+<p>In addition to this, I added several functions to this pipeline, such as automatically finding the latest trained epoch for resuming training, evaluating the model of certain epoch on certain dataset.</p>
+<h3 id="how-i-approached-to-this-problem">How I approached to this problem</h3>
+<p>First, I separated the components required for the job script. These components fall into two categories: (1) the necessary resources, such as the number of CPUs or GPUs, and (2) the hyper parameters or metadata about the experiment—like which dataset to use. I used Python’s <code class="language-plaintext highlighter-rouge">dataclass</code> to define this information. This is a particularly appropriate design choice, as Python’s <code class="language-plaintext highlighter-rouge">dataclass</code> allows dot notation for accessing member variables, similar to <code class="language-plaintext highlighter-rouge">argparse.Namespace</code>. By replacing the <code class="language-plaintext highlighter-rouge">args</code> object that used to hold a <code class="language-plaintext highlighter-rouge">Namespace</code> with a <code class="language-plaintext highlighter-rouge">dataclass</code>, I could use the same code without any issues. After completing the Python script, I defined a shell function in my <code class="language-plaintext highlighter-rouge">.bashrc</code> that both runs the generated Python script and takes care of submitting the job instead of me. </p>
 <h2 id="result-how-effective-was-it">Result: How effective was it?</h2>
-
 <p>It was extremely effective. It didn’t just save time—it also prevented errors that often occurred when writing job scripts manually. Validation time was drastically reduced as well. For example, suppose I had to evaluate models from epoch 0 to 200 and there was only one day left before a research meeting. I could instantly generate evaluation scripts for checkpoints from epoch 0–10, 10–20, 20–30, and so on, reducing validation time to one-tenth. Of course, this costs money for using TSUBAME, but the lab covers the usage fees, not me lol.</p>
-
-<h2 id="reflection-what-was-the-hardest-part-what-is-a-takeaway">Reflection: What was the hardest part? What is a takeaway?</h2>
-
-<p>Initially, I was hesitant to deviate from the established workflow. There are regular research meetings, and I didn’t want to be scolded by wasting time for automating job script generation—a task that doesn’t even need to be discussed in meetings. Plus, since research directions often change unpredictably, I had to design the program carefully so that it wouldn’t become useless for future experiments.</p>
-
+<h2 id="reflection-what-was-the-hard-part-what-is-a-takeaway">Reflection: What was the hard part? What is a takeaway?</h2>
+<p>Initially, I was hesitant to deviate from the established workflow. There are regular research meetings, and I didn’t want to be scolded for wasting time on automating job script generation—a task that doesn’t even need to be discussed in meetings. Plus, since research directions often change unpredictably, I had to design the program carefully so that it wouldn’t become useless for future experiments. But in the end, it paid off, and I strongly felt that the ability to design my own tools and workflow is one of the great privileges of being a programmer.</p>
 
         
       </section>
@@ -470,19 +406,19 @@ In a similar manner, I made a pipeline for generating <code class="language-plai
       <section class="page__share">
   <h4 class="page__share-title">Share on</h4>
 
-  <a href="https://x.com/intent/tweet?text=Automating+HPC+Job+Script+Generation+for+Model+Training+and+Evaluation%20http%3A%2F%2Flocalhost%3A4000%2Fprojects%2F2025%2F05%2F06%2FAutomating-HPC-Job-Script-Generation-for-Model-Training.html" class="btn btn--x" aria-label="Share on X" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on X">
+  <a href="https://x.com/intent/tweet?text=Automating+HPC+Job+Script+Generation+for+Model+Training+and+Evaluation%20https%3A%2F%2Fcjsj156%2Fcjsj156.github.io%2Fprojects%2F2025%2F05%2F06%2FAutomating-HPC-Job-Script-Generation-for-Model-Training.html" class="btn btn--x" aria-label="Share on X" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on X">
     <i class="fab fa-fw fa-x-twitter" aria-hidden="true"></i><span> X</span>
   </a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fprojects%2F2025%2F05%2F06%2FAutomating-HPC-Job-Script-Generation-for-Model-Training.html" class="btn btn--facebook" aria-label="Share on Facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook">
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fcjsj156%2Fcjsj156.github.io%2Fprojects%2F2025%2F05%2F06%2FAutomating-HPC-Job-Script-Generation-for-Model-Training.html" class="btn btn--facebook" aria-label="Share on Facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook">
     <i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span>
   </a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/projects/2025/05/06/Automating-HPC-Job-Script-Generation-for-Model-Training.html" class="btn btn--linkedin" aria-label="Share on LinkedIn" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn">
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://cjsj156/cjsj156.github.io/projects/2025/05/06/Automating-HPC-Job-Script-Generation-for-Model-Training.html" class="btn btn--linkedin" aria-label="Share on LinkedIn" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn">
     <i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span>
   </a>
 
-  <a href="https://bsky.app/intent/compose?text=Automating+HPC+Job+Script+Generation+for+Model+Training+and+Evaluation%20http%3A%2F%2Flocalhost%3A4000%2Fprojects%2F2025%2F05%2F06%2FAutomating-HPC-Job-Script-Generation-for-Model-Training.html" class="btn btn--bluesky" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Bluesky">
+  <a href="https://bsky.app/intent/compose?text=Automating+HPC+Job+Script+Generation+for+Model+Training+and+Evaluation%20https%3A%2F%2Fcjsj156%2Fcjsj156.github.io%2Fprojects%2F2025%2F05%2F06%2FAutomating-HPC-Job-Script-Generation-for-Model-Training.html" class="btn btn--bluesky" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Bluesky">
     <i class="fab fa-fw fa-bluesky" aria-hidden="true"></i><span> Bluesky</span>
   </a>
 </section>
@@ -632,7 +568,7 @@ In a similar manner, I made a pipeline for generating <code class="language-plai
   </ul>
 </div>
 
-<div class="page__footer-copyright">&copy; 2025 <a href="http://localhost:4000">3次元を理解しよう</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
+<div class="page__footer-copyright">&copy; 2025 <a href="https://cjsj156/cjsj156.github.io">3次元を理解しよう</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
 
       </footer>
     </div>

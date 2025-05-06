@@ -15,7 +15,7 @@
               "state": {
                 "file": "_posts/projects/2025-05-06-Automating HPC Job Script Generation for Model Training.md",
                 "mode": "source",
-                "source": false
+                "source": true
               },
               "icon": "lucide-file",
               "title": "2025-05-06-Automating HPC Job Script Generation for Model Training"
@@ -171,8 +171,11 @@
   },
   "active": "7c1e8f6cd25b4247",
   "lastOpenFiles": [
-    "_posts/projects/2025-05-04-Tried Vulkan for Image Resizing.md",
+    "index.md",
+    "_config.yml~",
+    "_data/authors.yml",
     "_posts/projects/2025-05-06-Automating HPC Job Script Generation for Model Training.md",
+    "_posts/projects/2025-05-04-Tried Vulkan for Image Resizing.md",
     "_site/projects/2025/05/06/Automating-HPC-Job-Script-Generation-for-Model-Training.html",
     "_site/projects/2025/05/04/Tried-Vulkan-for-Image-Resizing.html",
     "_site/projects/2025/05/06/Automating-HPC-Job-Script-Generation-for-Model-Training-and-Evaluation.html",
@@ -183,8 +186,6 @@
     "_site/just-notes/2025",
     "_site/assets/job_scheduling_system.png",
     "_site/assets/HPC_job_script_generator.png",
-    "_site/Gemfile.lock",
-    "_site/Gemfile",
     "vendor/bundle/ruby/3.2.0/gems/jekyll-theme-midnight-0.2.0/assets/fonts/OpenSans-SemiboldItalic-webfont.svg",
     "vendor/bundle/ruby/3.2.0/gems/jekyll-theme-midnight-0.2.0/assets/fonts/OpenSans-Semibold-webfont.svg",
     "vendor/bundle/ruby/3.2.0/gems/jekyll-theme-midnight-0.2.0/assets/fonts/OpenSans-Regular-webfont.svg",
@@ -214,8 +215,6 @@
     "vendor/bundle/ruby/3.2.0/gems/jekyll-sitemap-1.4.0/spec/fixtures/_posts/2014-03-02-march-the-second.md",
     "vendor/bundle/ruby/3.2.0/gems/jekyll-sitemap-1.4.0/spec/fixtures/_posts/2013-12-12-dec-the-second.md",
     "vendor/bundle/ruby/3.2.0/gems/jekyll-sitemap-1.4.0/spec/fixtures/_my_collection/this-has-non-standard-chars.md",
-    "vendor/bundle/ruby/3.2.0/gems/jekyll-sitemap-1.4.0/spec/fixtures/_my_collection/custom_permalink_2.md",
-    "vendor/bundle/ruby/3.2.0/gems/jekyll-sitemap-1.4.0/spec/fixtures/_my_collection/custom_permalink.md",
-    "vendor/bundle/ruby/3.2.0/gems/jekyll-sitemap-1.4.0/spec/fixtures/404.md"
+    "vendor/bundle/ruby/3.2.0/gems/jekyll-sitemap-1.4.0/spec/fixtures/_my_collection/custom_permalink_2.md"
   ]
 }

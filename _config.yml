@@ -29,6 +29,9 @@ github_username:  cjsj166
 name: "Doehyung Lee"
 author:
   name: "Doehyung Lee"
+  avatar: "/assets/bio-photo.png"
+  bio: "2nd year student in Institute of Science Tokyo"
+  location: "Tokyo"
 
 header:
   nav: "main"
@@ -37,13 +40,17 @@ defaults:
       path: ""
       type: posts
     values:
-      author_profile: true
       layout: single
       comments: true
       share: true
       related: true
       sidebar:
         nav: docs
+  - scope:
+      path: "_posts/projects"
+      type: posts
+    values:
+      classes: "wide"
 
 
 
