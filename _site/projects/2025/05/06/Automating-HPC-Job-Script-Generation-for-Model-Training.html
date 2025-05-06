@@ -10,8 +10,8 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>github.io 블로그 시작하기 - 3次元を理解しよう</title>
-<meta name="description" content="GitHub Blog 서비스인 github.io 블로그 시작하기로 했다.">
+<!-- begin _includes/seo.html --><title>Automating HPC Job Script Generation for Model Training and Evaluation - 3次元を理解しよう</title>
+<meta name="description" content="The ability to make one’s own tools is one of a programmer’s biggest strengths.">
 
 
   <meta name="author" content="Doehyung Lee">
@@ -23,26 +23,26 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="3次元を理解しよう">
-<meta property="og:title" content="github.io 블로그 시작하기">
-<meta property="og:url" content="http://localhost:4000/blog/2024/06/22/github-blog-start.html">
+<meta property="og:title" content="Automating HPC Job Script Generation for Model Training and Evaluation">
+<meta property="og:url" content="http://localhost:4000/projects/2025/05/06/Automating-HPC-Job-Script-Generation-for-Model-Training.html">
 
 
-  <meta property="og:description" content="GitHub Blog 서비스인 github.io 블로그 시작하기로 했다.">
-
-
-
-
-
-
-
-  <meta property="article:published_time" content="2024-06-22T00:00:00+09:00">
+  <meta property="og:description" content="The ability to make one’s own tools is one of a programmer’s biggest strengths.">
 
 
 
 
 
 
-<link rel="canonical" href="http://localhost:4000/blog/2024/06/22/github-blog-start.html">
+
+  <meta property="article:published_time" content="2025-05-06T00:00:00+09:00">
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/projects/2025/05/06/Automating-HPC-Job-Script-Generation-for-Model-Training.html">
 
 
 
@@ -354,7 +354,7 @@
 	        
 	        
 	          <li>
-	            <a href="/projects/2025/05/06/Automating-HPC-Job-Script-Generation-for-Model-Training.html">
+	            <a href="/projects/2025/05/06/Automating-HPC-Job-Script-Generation-for-Model-Training.html" class="active">
 	              Automating HPC Job Script Generation for Model Training and Evaluation
 	            </a>
 	          </li>
@@ -401,16 +401,16 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="github.io 블로그 시작하기">
-    <meta itemprop="description" content="GitHub Blog 서비스인 github.io 블로그 시작하기로 했다.">
-    <meta itemprop="datePublished" content="2024-06-22T00:00:00+09:00">
+    <meta itemprop="headline" content="Automating HPC Job Script Generation for Model Training and Evaluation">
+    <meta itemprop="description" content="The ability to make one’s own tools is one of a programmer’s biggest strengths.">
+    <meta itemprop="datePublished" content="2025-05-06T00:00:00+09:00">
     
 
     <div class="page__inner-wrap">
       
         <header>
           <h1 id="page-title" class="page__title" itemprop="headline">
-            <a href="http://localhost:4000/blog/2024/06/22/github-blog-start.html" itemprop="url">github.io 블로그 시작하기
+            <a href="http://localhost:4000/projects/2025/05/06/Automating-HPC-Job-Script-Generation-for-Model-Training.html" itemprop="url">Automating HPC Job Script Generation for Model Training and Evaluation
 </a>
           </h1>
           
@@ -421,14 +421,36 @@
 
       <section class="page__content" itemprop="text">
         
-        <p>이 글의 제목은 github.io 블로그 시작하기이고
-마지막으로 수정된 시간은 이다.</p>
+        <h2 id="introduction-running-my-code-on-an-hpc-cluster">Introduction: Running my code on an HPC cluster</h2>
 
-<p>Github Pages 튜토리얼을 따라해서 작성함.
-https://devinlife.com/howto/</p>
+<p><img src="/assets/job_scheduling_system.png" alt="job_scheduling_system" /></p>
 
-<p>Ruby는 sudo apt install 로 설치하면 안됨. 이하 참조
-https://qiita.com/kerupani129/items/77dd1e3390b53f4e97b2</p>
+<p>The figure shows a process of submitting a job to an HPC cluster and executing code.</p>
+
+<p>I often run experiments involving training and testing computer vision models. Recently, I’ve been working with large models like Depth Anything, and in such cases, my local GPU’s VRAM is often insufficient. As a result, I’ve increasingly been using not only lab computers but also TSUBAME—the supercomputer owned by my university. However, an HPC (High Performance Computing) cluster like TSUBAME is a shared resource among multiple users, so I can’t just run my program whenever I want. Instead, I need to submit a script specifying what resources I need and which program I want to run. The system uses this request to allocate appropriate resources and execute the program. This kind of system is called a job scheduling system (or more broadly, a batch system), and the script that includes the code and required resources is called a job.</p>
+
+<h2 id="problem-writing-a-job-script-is-too-tedious">Problem: Writing a job script is too tedious</h2>
+
+<p>Writing that script manually is a tedious task. When running similar experiments repeatedly, the required resources usually don’t change much, but I still had to write the same script over and over again. This manual process also led to frequent mistakes, like inputting the wrong hyperparameters and ending up with useless training runs.</p>
+
+<h2 id="solution-write-a-script-that-manages-job-submission">Solution: Write a script that manages job submission</h2>
+
+<p><img src="/assets/HPC_job_script_generator.png" alt="job_scheduling_system" /></p>
+
+<p>The figure above shows the workflow of a program that automatically generates job scripts. For example, I can call a shell function named <code class="language-plaintext highlighter-rouge">train_manager</code> (defined in <code class="language-plaintext highlighter-rouge">.bashrc</code>) with an argument like <code class="language-plaintext highlighter-rouge">--experiment train_with_batch_4</code>. This shell function then invokes a Python script and passes along the argument. The Python script looks up the hyperparameters for <code class="language-plaintext highlighter-rouge">train_with_batch_4</code> from a file that stores settings for multiple experiment versions. It combines these hyperparameters with a boilerplate job script template to generate the final <code class="language-plaintext highlighter-rouge">train_script</code>. The shell function then receives this script and immediately submits it to the scheduler.
+In a similar manner, I made a pipeline for generating <code class="language-plaintext highlighter-rouge">evaluation_script</code>.</p>
+
+<h3 id="how-i-approached-to-make-the-program">How I approached to make the program</h3>
+
+<p>First, I separated the components required for the job script. These components fall into two categories: (1) the necessary resources, such as the number of CPUs or GPUs, and (2) the hyperparameters or metadata about the experiment—like which dataset to use. I used Python’s <code class="language-plaintext highlighter-rouge">dataclass</code> to define this information. This is a key part of the system, as Python’s <code class="language-plaintext highlighter-rouge">dataclass</code> allows dot notation for accessing member variables, similar to <code class="language-plaintext highlighter-rouge">argparse.Namespace</code>. By replacing the <code class="language-plaintext highlighter-rouge">args</code> object that used to hold a <code class="language-plaintext highlighter-rouge">Namespace</code> with a <code class="language-plaintext highlighter-rouge">dataclass</code>, I could use the same code without any issues. After completing the Python script, I defined a shell function in my <code class="language-plaintext highlighter-rouge">.bashrc</code> that both runs the generated Python script and takes care of submitting the job instead of me. </p>
+
+<h2 id="result-how-effective-was-it">Result: How effective was it?</h2>
+
+<p>It was extremely effective. It didn’t just save time—it also prevented errors that often occurred when writing job scripts manually. Validation time was drastically reduced as well. For example, suppose I had to evaluate models from epoch 0 to 200 and there was only one day left before a research meeting. I could instantly generate evaluation scripts for checkpoints from epoch 0–10, 10–20, 20–30, and so on, reducing validation time to one-tenth. Of course, this costs money for using TSUBAME, but the lab covers the usage fees, not me lol.</p>
+
+<h2 id="reflection-what-was-the-hardest-part-what-is-a-takeaway">Reflection: What was the hardest part? What is a takeaway?</h2>
+
+<p>Initially, I was hesitant to deviate from the established workflow. There are regular research meetings, and I didn’t want to be scolded by wasting time for automating job script generation—a task that doesn’t even need to be discussed in meetings. Plus, since research directions often change unpredictably, I had to design the program carefully so that it wouldn’t become useless for future experiments.</p>
 
 
         
@@ -441,26 +463,26 @@ https://qiita.com/kerupani129/items/77dd1e3390b53f4e97b2</p>
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2024-06-22T00:00:00+09:00">June 22, 2024</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-05-06T00:00:00+09:00">May 6, 2025</time></p>
 
       </footer>
 
       <section class="page__share">
   <h4 class="page__share-title">Share on</h4>
 
-  <a href="https://x.com/intent/tweet?text=github.io+%EB%B8%94%EB%A1%9C%EA%B7%B8+%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0%20http%3A%2F%2Flocalhost%3A4000%2Fblog%2F2024%2F06%2F22%2Fgithub-blog-start.html" class="btn btn--x" aria-label="Share on X" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on X">
+  <a href="https://x.com/intent/tweet?text=Automating+HPC+Job+Script+Generation+for+Model+Training+and+Evaluation%20http%3A%2F%2Flocalhost%3A4000%2Fprojects%2F2025%2F05%2F06%2FAutomating-HPC-Job-Script-Generation-for-Model-Training.html" class="btn btn--x" aria-label="Share on X" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on X">
     <i class="fab fa-fw fa-x-twitter" aria-hidden="true"></i><span> X</span>
   </a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fblog%2F2024%2F06%2F22%2Fgithub-blog-start.html" class="btn btn--facebook" aria-label="Share on Facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook">
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fprojects%2F2025%2F05%2F06%2FAutomating-HPC-Job-Script-Generation-for-Model-Training.html" class="btn btn--facebook" aria-label="Share on Facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook">
     <i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span>
   </a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/blog/2024/06/22/github-blog-start.html" class="btn btn--linkedin" aria-label="Share on LinkedIn" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn">
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/projects/2025/05/06/Automating-HPC-Job-Script-Generation-for-Model-Training.html" class="btn btn--linkedin" aria-label="Share on LinkedIn" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn">
     <i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span>
   </a>
 
-  <a href="https://bsky.app/intent/compose?text=github.io+%EB%B8%94%EB%A1%9C%EA%B7%B8+%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0%20http%3A%2F%2Flocalhost%3A4000%2Fblog%2F2024%2F06%2F22%2Fgithub-blog-start.html" class="btn btn--bluesky" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Bluesky">
+  <a href="https://bsky.app/intent/compose?text=Automating+HPC+Job+Script+Generation+for+Model+Training+and+Evaluation%20http%3A%2F%2Flocalhost%3A4000%2Fprojects%2F2025%2F05%2F06%2FAutomating-HPC-Job-Script-Generation-for-Model-Training.html" class="btn btn--bluesky" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Bluesky">
     <i class="fab fa-fw fa-bluesky" aria-hidden="true"></i><span> Bluesky</span>
   </a>
 </section>
@@ -469,10 +491,10 @@ https://qiita.com/kerupani129/items/77dd1e3390b53f4e97b2</p>
       
   <nav class="pagination">
     
-      <a href="#" class="pagination--pager disabled">Previous</a>
+      <a href="/projects/2025/05/04/Tried-Vulkan-for-Image-Resizing.html" class="pagination--pager" title="Tried Vulkan for Image Resizing">Previous</a>
     
     
-      <a href="/auto-schedule-register/2024/06/22/start.html" class="pagination--pager" title="Concept of Auto Schedule Register">Next</a>
+      <a href="#" class="pagination--pager disabled">Next</a>
     
   </nav>
 
@@ -489,29 +511,6 @@ https://qiita.com/kerupani129/items/77dd1e3390b53f4e97b2</p>
   
   <h2 class="page__related-title">You May Also Enjoy</h2>
   <div class="grid__wrapper">
-    
-      
-      
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/projects/2025/05/06/Automating-HPC-Job-Script-Generation-for-Model-Training.html" rel="permalink">Automating HPC Job Script Generation for Model Training and Evaluation
-</a>
-      
-    </h2>
-    
-
-
-    <p class="archive__item-excerpt" itemprop="description">The ability to make one’s own tools is one of a programmer’s biggest strengths.
-</p>
-  </article>
-</div>
-
     
       
       
@@ -577,6 +576,29 @@ https://qiita.com/kerupani129/items/77dd1e3390b53f4e97b2</p>
 
 
     <p class="archive__item-excerpt" itemprop="description">망한듯 ㅋㅋㅋㅋㅋ
+</p>
+  </article>
+</div>
+
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/study-notes/2024/06/30/%E4%B8%BB%E6%88%90%E5%88%86%E5%88%86%E6%9E%90%E3%81%AE%E5%B9%BE%E4%BD%95%E5%AD%A6%E7%9A%84%E3%81%AA%E6%84%8F%E5%91%B3.html" rel="permalink">主成分分析の幾何学的な意味
+</a>
+      
+    </h2>
+    
+
+
+    <p class="archive__item-excerpt" itemprop="description">主成分分析の幾何学的な意味
 </p>
   </article>
 </div>

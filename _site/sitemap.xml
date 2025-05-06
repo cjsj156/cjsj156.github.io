@@ -41,12 +41,16 @@
 <lastmod>2024-07-03T00:00:00+09:00</lastmod>
 </url>
 <url>
-<loc>http://localhost:4000/2025/05/03/%EB%B8%94%EB%A1%9C%EA%B7%B8-%EC%9A%B4%EC%98%81%EC%9A%A9-%EB%A9%94%EB%AA%A8.html</loc>
+<loc>http://localhost:4000/just-notes/2025/05/03/%EB%B8%94%EB%A1%9C%EA%B7%B8-%EC%9A%B4%EC%98%81%EC%9A%A9-%EB%A9%94%EB%AA%A8.html</loc>
 <lastmod>2025-05-03T00:00:00+09:00</lastmod>
 </url>
 <url>
 <loc>http://localhost:4000/projects/2025/05/04/Tried-Vulkan-for-Image-Resizing.html</loc>
 <lastmod>2025-05-04T00:00:00+09:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/projects/2025/05/06/Automating-HPC-Job-Script-Generation-for-Model-Training.html</loc>
+<lastmod>2025-05-06T00:00:00+09:00</lastmod>
 </url>
 <url>
 <loc>http://localhost:4000/about/</loc>

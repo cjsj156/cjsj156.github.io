@@ -60,14 +60,20 @@ var store = [{
         "teaser": null
       },{
         "title": "블로그 운영용 메모",
-        "excerpt":"Github Pages란? github pages는 호스팅할 내용을 markdown 파일로 github repo에 올리면, 그 내용을 Jekyll을 사용해서 markdown 을 html 로 변환하고 호스팅해주는 서비스임. Jekyll이란? ruby 로 작성된 프로그램으로, markdown 파일을 호스팅 가능한 html 파일 등으로 변환시켜주는 프로그램. gem 이라는 ruby에서의 패키지 인스톨러를 통해 설치할 수 있음. 구체적으로 뭘 하면 되나? 로컬에서...","categories": [],
+        "excerpt":"Github Pages란? github pages는 호스팅할 내용을 markdown 파일로 github repo에 올리면, 그 내용을 Jekyll을 사용해서 markdown 을 html 로 변환하고 호스팅해주는 서비스임. Jekyll이란? ruby 로 작성된 프로그램으로, markdown 파일을 호스팅 가능한 html 파일 등으로 변환시켜주는 프로그램. gem 이라는 ruby에서의 패키지 인스톨러를 통해 설치할 수 있음. 구체적으로 뭘 하면 되나? 로컬에서...","categories": ["just-notes"],
         "tags": [],
-        "url": "/2025/05/03/%EB%B8%94%EB%A1%9C%EA%B7%B8-%EC%9A%B4%EC%98%81%EC%9A%A9-%EB%A9%94%EB%AA%A8.html",
+        "url": "/just-notes/2025/05/03/%EB%B8%94%EB%A1%9C%EA%B7%B8-%EC%9A%B4%EC%98%81%EC%9A%A9-%EB%A9%94%EB%AA%A8.html",
         "teaser": null
       },{
         "title": "Tried Vulkan for Image Resizing",
         "excerpt":"Can we make image processing faster with smartphone GPU with Vulkan? Background Nefrock, the company where I worked on this project, wanted to examine the possibility of optimizing image preprocessing using the GPU of a smartphone. They’re providing a service for real-time OCR on smartphones, and while the deep learning...","categories": ["projects"],
         "tags": ["Blog"],
         "url": "/projects/2025/05/04/Tried-Vulkan-for-Image-Resizing.html",
+        "teaser": null
+      },{
+        "title": "Automating HPC Job Script Generation for Model Training and Evaluation",
+        "excerpt":"Introduction: Running my code on an HPC cluster The figure shows a process of submitting a job to an HPC cluster and executing code. I often run experiments involving training and testing computer vision models. Recently, I’ve been working with large models like Depth Anything, and in such cases, my...","categories": ["projects"],
+        "tags": ["Blog"],
+        "url": "/projects/2025/05/06/Automating-HPC-Job-Script-Generation-for-Model-Training.html",
         "teaser": null
       }]

@@ -75,7 +75,10 @@ whitelist:
 # Excluded items can be processed by explicitly listing the directories or
 # their entries' file path in the `include:` list.
 #
-# exclude:
+exclude:
+  - obsidian_templates/
+  - vendor/
+#  - **/*.erb
 #   - .sass-cache/
 #   - .jekyll-cache/
 #   - gemfiles/
