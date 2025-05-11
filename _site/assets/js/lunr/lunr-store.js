@@ -17,12 +17,6 @@ var store = [{
         "url": "/blog/2024/06/22/%EB%B8%94%EB%A1%9C%EA%B7%B8-%EC%9A%B4%EC%98%81-%EA%B3%84%ED%9A%8D.html",
         "teaser": null
       },{
-        "title": "Who I Am",
-        "excerpt":"Education  2020-2024 Tokyo Institute of Technology  2024-Present Tokyo Institute of Technology  permalink: - who-i-am  ","categories": ["who-i-am"],
-        "tags": [],
-        "url": "/who-i-am/2024/06/22/who-i-am.html",
-        "teaser": null
-      },{
         "title": "github.io 블로그 시작하기",
         "excerpt":"이 글의 제목은 github.io 블로그 시작하기이고 마지막으로 수정된 시간은 2024-06-22 00:00:00 +0900이다.   Github Pages 튜토리얼을 따라해서 작성함. https://devinlife.com/howto/   Ruby는 sudo apt install 로 설치하면 안됨. 이하 참조 https://qiita.com/kerupani129/items/77dd1e3390b53f4e97b2   bundle exec jekyll serve   ","categories": ["just-notes"],
         "tags": ["Blog"],
@@ -42,7 +36,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Auto Schedule Register",
-        "excerpt":"Auto Schedule Register github : https://github.com/cjsj166/auto-schedule-register link : https://chromewebstore.google.com/detail/fjodbpikdciljgollogaefihdnkfnile/preview?hl=ko&amp;authuser=0 ## “Information about arranged schedule will be provided.\\n\\ Do your best to describe the schedule as concisely as possible in json format.\\n\\ Required json format is as follow\\nY:year M:month D:day h:hour m:minute s:second X:unknown\\n\\ You can use X instead of any...","categories": ["projects"],
+        "excerpt":"Auto Schedule Register github : https://github.com/cjsj166/auto-schedule-register link : https://chromewebstore.google.com/detail/fjodbpikdciljgollogaefihdnkfnile/preview?hl=ko&amp;authuser=0 This post is not yet completed “Information about arranged schedule will be provided.\\n\\ Do your best to describe the schedule as concisely as possible in json format.\\n\\ Required json format is as follow\\nY:year M:month D:day h:hour m:minute s:second X:unknown\\n\\ You can...","categories": ["projects"],
         "tags": ["Blog"],
         "url": "/projects/2024/06/23/Auto-Schedule-Register.html",
         "teaser": null
@@ -72,7 +66,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Automating HPC Job Script Generation for Model Training and Evaluation",
-        "excerpt":"Introduction: Running my code on an HPC cluster The figure shows a process of submitting a job to an HPC cluster and executing code. I often run experiments involving training and testing computer vision models. Recently, I’ve been working with large models like Depth Anything, and in such cases, my...","categories": ["projects"],
+        "excerpt":"Introduction: Running a code on an HPC cluster The figure shows a process of submitting a job to an HPC cluster and executing code. I often run experiments involving training and testing computer vision models. Recently, I’ve been working with large models like Depth Anything, and in such cases, my...","categories": ["projects"],
         "tags": ["Blog"],
         "url": "/projects/2025/05/06/Automating-HPC-Job-Script-Generation-for-Model-Training.html",
         "teaser": null

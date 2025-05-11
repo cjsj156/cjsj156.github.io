@@ -12,7 +12,7 @@ tags:
 ###### github : https://github.com/cjsj166/auto-schedule-register
 ###### link : https://chromewebstore.google.com/detail/fjodbpikdciljgollogaefihdnkfnile/preview?hl=ko&authuser=0
 
-## 
+## This post is not yet completed
 
 
 "Information about arranged schedule will be provided.\n\

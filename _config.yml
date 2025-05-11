@@ -18,10 +18,9 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: 3次元を理解しよう
+title: 3次元を見よう
 email: dohyung200@gmail.com 
 description: >- # this means to ignore newlines until "baseurl:"
-  Developer blog of 2nd year graduate student in Institute of Science Tokyo.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://cjsj156/cjsj156.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: None
@@ -30,8 +29,10 @@ name: "Doehyung Lee"
 author:
   name: "Doehyung Lee"
   avatar: "/assets/bio-photo.png"
-  bio: "2nd year student in Institute of Science Tokyo"
+  bio: "M.S. student at Okutomi & Monno Lab, Tokyo Tech. Interested in 3D vision (SfM, dual-pixel disparity, etc)"
   location: "Tokyo"
+  home: "/about/"
+  
 
 header:
   nav: "main"

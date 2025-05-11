@@ -7,7 +7,7 @@ categories:
 tags:
   - Blog
 ---
-## Introduction: Running my code on an HPC cluster
+## Introduction: Running a code on an HPC cluster
 
 ![job_scheduling_system](/assets/job_scheduling_system.png)
 
